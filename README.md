@@ -1,6 +1,6 @@
 # 🇰🇪 Kenya Finance Bill 2026 AI Assistant
 
-[Preview](preview.png)
+<img src='/preview.png' alt="preview-img" />
 
 A free, fast, and open-source AI chatbot designed to explain the **Kenya Finance Bill, 2026** in plain English. Built with Next.js, Vercel, and Groq (Llama 3.2), this tool helps citizens, business owners, and students understand complex tax amendments without needing a law degree.
 
