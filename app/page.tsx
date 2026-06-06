@@ -3,7 +3,7 @@
 import { useChat } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
 import Image from "next/image";
-import { type ReactNode, useEffect, useRef, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 const SAMPLE_QUESTIONS = [
   "Summarize the biggest tax changes",
@@ -72,6 +72,12 @@ function SendIcon() {
     </svg>
   );
 }
+
+type HumanCheck = {
+  left: number;
+  right: number;
+  token: string;
+};
 
 function Header({ onFocusChat }: { onFocusChat: () => void }) {
   return (
@@ -349,7 +355,7 @@ function ChatMessage({
   const isUser = role === "user";
 
   return (
-    <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
+    <div className={`flex w-full min-w-0 gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
       <div
         className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border ${
           isUser
@@ -364,12 +370,12 @@ function ChatMessage({
         )}
       </div>
       <div
-        className={`flex max-w-[84%] flex-col gap-1 ${
-          isUser ? "items-end" : "items-start"
+        className={`flex min-w-0 flex-col gap-1 ${
+          isUser ? "max-w-[84%] items-end" : "flex-1 items-start sm:max-w-[84%]"
         }`}
       >
         <div
-          className={`rounded-md border px-4 py-3 text-sm font-medium leading-6 ${
+          className={`max-w-full overflow-hidden rounded-md border px-4 py-3 text-sm font-medium leading-6 ${
             isUser
               ? "border-red-300/30 bg-red-500/18 text-white"
               : "border-white/10 bg-white/[0.06] text-white"
@@ -440,12 +446,31 @@ function ChatInput({
   onChange,
   onSubmit,
   disabled,
+  humanCheck,
+  humanCheckError,
+  humanCheckValue,
+  onHumanCheckChange,
+  onHumanCheckRetry,
 }: {
   value: string;
   onChange: (value: string) => void;
   onSubmit: () => void;
   disabled: boolean;
+  humanCheck: HumanCheck | null;
+  humanCheckError: string | null;
+  humanCheckValue: string;
+  onHumanCheckChange: (value: string) => void;
+  onHumanCheckRetry: () => void;
 }) {
+  const humanCheckAnswer = Number.parseInt(humanCheckValue.trim(), 10);
+  const isHumanCheckFilled = Number.isInteger(humanCheckAnswer);
+  const isHumanCheckCorrect =
+    humanCheck !== null &&
+    isHumanCheckFilled &&
+    humanCheckAnswer === humanCheck.left + humanCheck.right;
+  const canSubmit =
+    !disabled && humanCheck !== null && value.trim().length > 0 && isHumanCheckCorrect;
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
@@ -454,7 +479,7 @@ function ChatInput({
   };
 
   return (
-    <div className="flex items-end gap-2 border-t border-white/10 bg-black/20 p-3 sm:gap-3 sm:p-4">
+    <div className="flex flex-col gap-3 border-t border-white/10 bg-black/20 p-3 sm:flex-row sm:items-end sm:p-4">
       <textarea
         value={value}
         onChange={(event) => onChange(event.target.value)}
@@ -462,24 +487,68 @@ function ChatInput({
         disabled={disabled}
         placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
         rows={1}
-        className="min-h-11 max-h-32 min-w-0 flex-1 resize-none rounded-md border border-white/12 bg-[#101514] px-3 py-2.5 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-12 sm:px-4 sm:py-3"
+        className="min-h-11 max-h-32 w-full min-w-0 resize-none rounded-md border border-white/12 bg-[#101514] px-3 py-2.5 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-12 sm:flex-1 sm:px-4 sm:py-3"
         onInput={(event) => {
           const target = event.target as HTMLTextAreaElement;
           target.style.height = "auto";
           target.style.height = `${Math.min(target.scrollHeight, 128)}px`;
         }}
       />
-      <button
-        type="button"
-        onClick={onSubmit}
-        disabled={disabled || !value.trim()}
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30 sm:h-12 sm:w-12"
-        aria-label="Send message"
-      >
-        <SendIcon />
-      </button>
+      <div className="flex w-full items-end gap-2 sm:w-auto">
+        <label className="min-w-0 flex-1 sm:w-36 sm:flex-none">
+          <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
+            {humanCheck ? `${humanCheck.left} + ${humanCheck.right}` : "Check"}
+          </span>
+          <input
+            type="number"
+            inputMode="numeric"
+            value={humanCheckValue}
+            onChange={(event) => onHumanCheckChange(event.target.value)}
+            disabled={disabled || humanCheck === null}
+            placeholder="Answer"
+            className="h-11 w-full rounded-md border border-white/12 bg-[#101514] px-3 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:h-12"
+            aria-label={
+              humanCheck
+                ? `Human check: ${humanCheck.left} plus ${humanCheck.right}`
+                : "Human check loading"
+            }
+          />
+        </label>
+        <button
+          type="button"
+          onClick={onSubmit}
+          disabled={!canSubmit}
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30 sm:h-12 sm:w-12"
+          aria-label="Send message"
+        >
+          <SendIcon />
+        </button>
+      </div>
+      {humanCheckError ? (
+        <button
+          type="button"
+          onClick={onHumanCheckRetry}
+          className="text-left text-xs font-semibold text-red-100 underline-offset-4 hover:underline sm:w-full"
+        >
+          {humanCheckError} Tap to retry.
+        </button>
+      ) : null}
     </div>
   );
+}
+
+function getDisplayErrorMessage(error: Error): string {
+  try {
+    const parsedError = JSON.parse(error.message) as { error?: unknown };
+
+    if (typeof parsedError.error === "string") {
+      return parsedError.error;
+    }
+  } catch {
+    // Fall through to the raw message when it is not JSON.
+  }
+
+  return error.message;
 }
 
 function ChatConsole({
@@ -487,16 +556,26 @@ function ChatConsole({
   input,
   isLoading,
   error,
+  humanCheck,
+  humanCheckError,
+  humanCheckValue,
   onAsk,
   onInputChange,
+  onHumanCheckChange,
+  onHumanCheckRetry,
   onSubmit,
 }: {
   messages: UIMessage[];
   input: string;
   isLoading: boolean;
   error: Error | undefined;
+  humanCheck: HumanCheck | null;
+  humanCheckError: string | null;
+  humanCheckValue: string;
   onAsk: (question: string) => void;
   onInputChange: (value: string) => void;
+  onHumanCheckChange: (value: string) => void;
+  onHumanCheckRetry: () => void;
   onSubmit: () => void;
 }) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -565,7 +644,7 @@ function ChatConsole({
             )}
             {error ? (
               <div className="rounded-md border border-red-300/30 bg-red-500/15 px-4 py-3 text-sm leading-6 text-red-100">
-                {error.message}
+                {getDisplayErrorMessage(error)}
               </div>
             ) : null}
             <div ref={messagesEndRef} />
@@ -577,6 +656,11 @@ function ChatConsole({
           onChange={onInputChange}
           onSubmit={onSubmit}
           disabled={isLoading}
+          humanCheck={humanCheck}
+          humanCheckError={humanCheckError}
+          humanCheckValue={humanCheckValue}
+          onHumanCheckChange={onHumanCheckChange}
+          onHumanCheckRetry={onHumanCheckRetry}
         />
       </div>
     </section>
@@ -585,8 +669,37 @@ function ChatConsole({
 
 export default function Page() {
   const [input, setInput] = useState("");
+  const [humanCheck, setHumanCheck] = useState<HumanCheck | null>(null);
+  const [humanCheckError, setHumanCheckError] = useState<string | null>(null);
+  const [humanCheckValue, setHumanCheckValue] = useState("");
   const { messages, sendMessage, status, error, clearError } = useChat();
   const isLoading = status === "submitted" || status === "streaming";
+
+  const loadHumanCheck = useCallback(async () => {
+    try {
+      const response = await fetch("/api/human-check", {
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        setHumanCheck(null);
+        setHumanCheckError("Human check failed to load.");
+        return;
+      }
+
+      const challenge = (await response.json()) as HumanCheck;
+      setHumanCheck(challenge);
+      setHumanCheckError(null);
+      setHumanCheckValue("");
+    } catch {
+      setHumanCheck(null);
+      setHumanCheckError("Human check failed to load.");
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadHumanCheck();
+  }, [loadHumanCheck]);
 
   const focusChat = () => {
     document.getElementById("chat")?.scrollIntoView({ behavior: "smooth" });
@@ -594,11 +707,44 @@ export default function Page() {
 
   const handleSubmit = () => {
     const trimmed = input.trim();
-    if (!trimmed || isLoading) return;
+    const humanCheckAnswer = Number.parseInt(humanCheckValue.trim(), 10);
+
+    if (
+      !trimmed ||
+      isLoading ||
+      humanCheck === null ||
+      !Number.isInteger(humanCheckAnswer)
+    ) {
+      return;
+    }
+
+    if (humanCheckAnswer !== humanCheck.left + humanCheck.right) {
+      setHumanCheckError("Human check answer is incorrect.");
+      return;
+    }
 
     setInput("");
+    setHumanCheckValue("");
     clearError();
-    void sendMessage({ text: trimmed });
+    void sendMessage(
+      { text: trimmed },
+      {
+        body: {
+          humanCheckAnswer,
+          humanCheckToken: humanCheck.token,
+        },
+      },
+    ).finally(() => {
+      void loadHumanCheck();
+    });
+  };
+
+  const handleHumanCheckChange = (value: string) => {
+    setHumanCheckValue(value);
+
+    if (humanCheckError === "Human check answer is incorrect.") {
+      setHumanCheckError(null);
+    }
   };
 
   return (
@@ -611,8 +757,13 @@ export default function Page() {
           input={input}
           isLoading={isLoading}
           error={error}
+          humanCheck={humanCheck}
+          humanCheckError={humanCheckError}
+          humanCheckValue={humanCheckValue}
           onAsk={setInput}
           onInputChange={setInput}
+          onHumanCheckChange={handleHumanCheckChange}
+          onHumanCheckRetry={() => void loadHumanCheck()}
           onSubmit={handleSubmit}
         />
       </main>

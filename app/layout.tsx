@@ -1,26 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Mono, DM_Sans, Orbitron } from "next/font/google";
 import "./globals.css";
-
-const displayFont = Orbitron({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const bodyFont = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const monoFont = DM_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
@@ -78,10 +57,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${displayFont.variable} ${bodyFont.variable} ${monoFont.variable} h-full`}
-    >
+    <html lang="en" className="h-full">
       <body className="h-full antialiased" suppressHydrationWarning>
         {/* Accessibility skip link */}
         <a

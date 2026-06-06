@@ -2,6 +2,7 @@ import { createGroq } from "@ai-sdk/groq";
 import { convertToModelMessages, type UIMessage, streamText } from "ai";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { verifyHumanCheck } from "../../lib/human-check";
 
 export const runtime = "nodejs";
 
@@ -38,12 +39,18 @@ const STOP_WORDS = new Set([
 ]);
 
 type ChatRequestBody = {
+  humanCheckAnswer?: number | string;
+  humanCheckToken?: string;
   messages?: UIMessage[];
+};
+
+type ParsedChatRequest = {
+  messages: UIMessage[];
 };
 
 class ChatRequestError extends Error {}
 
-async function parseChatRequest(request: Request): Promise<UIMessage[]> {
+async function parseChatRequest(request: Request): Promise<ParsedChatRequest> {
   const body = (await request.json().catch(() => null)) as ChatRequestBody | null;
   const messages = body?.messages;
 
@@ -51,7 +58,11 @@ async function parseChatRequest(request: Request): Promise<UIMessage[]> {
     throw new ChatRequestError("A non-empty messages array is required.");
   }
 
-  return messages;
+  if (!verifyHumanCheck(body?.humanCheckToken, body?.humanCheckAnswer)) {
+    throw new ChatRequestError("Human check answer is required and must be correct.");
+  }
+
+  return { messages };
 }
 
 function getMessageText(message: UIMessage): string {
@@ -159,30 +170,19 @@ function selectRelevantBillContext(billContent: string, question: string): strin
 }
 
 function createSystemPrompt(billContext: string): string {
-  return `You are a Kenya Finance Bill assistant.
+  return `You are the Kenya Finance Bill 2026 Assistant.
 
-Use ONLY the Finance Bill excerpts provided below.
-Never use external knowledge.
-Never invent taxes, rates, penalties, deadlines, or interpretations.
-If the answer is not supported by the Finance Bill excerpts, answer exactly: "Not in the Bill."
-Explain legal language in simple English.
-Be concise and factual.
+Rules:
 
-Formatting rules:
-- Use Markdown.
-- Use Markdown tables when comparing items, rates, dates, categories, or impacts.
-- Use clear bullet lists for lists.
-- Use bold text for important labels only.
-- Every supported answer must end with:
+1. Use ONLY information contained in the provided Finance Bill text.
+2. Explain legal language in plain English.
+3. Always cite section numbers when available.
+4. If the answer is not present, reply exactly:
+   'Not in the Bill.'
+5. Never invent tax rules.
+6. Keep answers concise and understandable.
 
-Sources:
-- Section X
-- Section Y
-
-If there is no supporting section, answer exactly:
-Not in the Bill.
-
-Finance Bill excerpts:
+Provided Finance Bill text:
 """
 ${billContext}
 """`;
@@ -199,7 +199,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const [messages, billContent] = await Promise.all([
+    const [{ messages }, billContent] = await Promise.all([
       parseChatRequest(request),
       loadFinanceBillContent(),
     ]);

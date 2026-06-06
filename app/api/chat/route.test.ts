@@ -1,6 +1,7 @@
 import { createGroq } from "@ai-sdk/groq";
 import { convertToModelMessages, streamText } from "ai";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { createHumanCheckChallenge } from "../../lib/human-check";
 import { POST } from "./route";
 
 vi.mock("@ai-sdk/groq", () => ({
@@ -28,6 +29,16 @@ const createChatRequest = (body: unknown) =>
     body: JSON.stringify(body),
   });
 
+const withHumanCheck = (body: Record<string, unknown>) => {
+  const challenge = createHumanCheckChallenge();
+
+  return {
+    ...body,
+    humanCheckAnswer: challenge.left + challenge.right,
+    humanCheckToken: challenge.token,
+  };
+};
+
 describe("POST /api/chat", () => {
   const originalGroqApiKey = process.env.GROQ_API_KEY;
 
@@ -53,7 +64,7 @@ describe("POST /api/chat", () => {
   });
 
   it("returns 400 when messages are missing", async () => {
-    const response = await POST(createChatRequest({}));
+    const response = await POST(createChatRequest(withHumanCheck({})));
 
     await expect(response.json()).resolves.toEqual({
       error: "A non-empty messages array is required.",
@@ -71,7 +82,7 @@ describe("POST /api/chat", () => {
       },
     ];
 
-    const response = await POST(createChatRequest({ messages }));
+    const response = await POST(createChatRequest(withHumanCheck({ messages })));
 
     expect(response.status).toBe(200);
     expect(response.headers.get("content-type")).toContain("text/event-stream");
@@ -92,8 +103,11 @@ describe("POST /api/chat", () => {
     if (typeof systemPrompt !== "string") {
       throw new Error("Expected system prompt to be a string.");
     }
-    expect(systemPrompt).toContain("Finance Bill excerpts:");
-    expect(systemPrompt).toContain("Use ONLY the Finance Bill excerpts provided below.");
+    expect(systemPrompt).toContain("You are the Kenya Finance Bill 2026 Assistant.");
+    expect(systemPrompt).toContain(
+      "Use ONLY information contained in the provided Finance Bill text.",
+    );
+    expect(systemPrompt).toContain("Provided Finance Bill text:");
     expect(systemPrompt.length).toBeLessThan(7000);
   });
 
@@ -109,7 +123,7 @@ describe("POST /api/chat", () => {
       ],
     }));
 
-    await POST(createChatRequest({ messages }));
+    await POST(createChatRequest(withHumanCheck({ messages })));
 
     const convertedMessages = vi.mocked(convertToModelMessages).mock.calls[0][0] as typeof messages;
 
@@ -128,11 +142,62 @@ describe("POST /api/chat", () => {
     ];
 
     const responses = await Promise.all([
-      POST(createChatRequest({ messages: createMessages("VAT exemptions") })),
-      POST(createChatRequest({ messages: createMessages("PAYE deductions") })),
+      POST(
+        createChatRequest(
+          withHumanCheck({ messages: createMessages("VAT exemptions") }),
+        ),
+      ),
+      POST(
+        createChatRequest(
+          withHumanCheck({ messages: createMessages("PAYE deductions") }),
+        ),
+      ),
     ]);
 
     expect(responses.map((response) => response.status)).toEqual([200, 200]);
     expect(streamText).toHaveBeenCalledTimes(2);
+  });
+
+  it("returns 400 when the human check is missing", async () => {
+    const response = await POST(
+      createChatRequest({
+        messages: [
+          {
+            id: "message-1",
+            role: "user",
+            parts: [{ type: "text", text: "Hello" }],
+          },
+        ],
+      }),
+    );
+
+    await expect(response.json()).resolves.toEqual({
+      error: "Human check answer is required and must be correct.",
+    });
+    expect(response.status).toBe(400);
+    expect(streamText).not.toHaveBeenCalled();
+  });
+
+  it("returns 400 when the human check answer is incorrect", async () => {
+    const challenge = createHumanCheckChallenge();
+    const response = await POST(
+      createChatRequest({
+        humanCheckAnswer: challenge.left + challenge.right + 1,
+        humanCheckToken: challenge.token,
+        messages: [
+          {
+            id: "message-1",
+            role: "user",
+            parts: [{ type: "text", text: "Hello" }],
+          },
+        ],
+      }),
+    );
+
+    await expect(response.json()).resolves.toEqual({
+      error: "Human check answer is required and must be correct.",
+    });
+    expect(response.status).toBe(400);
+    expect(streamText).not.toHaveBeenCalled();
   });
 });
