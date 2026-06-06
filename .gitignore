@@ -1,6 +1,7 @@
 node_modules
 Finance-Bill-2026.pdf
 bill-content.txt
+!data/bill-content.txt
 .next/
 .env
 .env.local

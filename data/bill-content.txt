@@ -1,0 +1,1865 @@
+The Finance Bill, 2026
+1
+THE FINANCE BILL, 2026
+A Bill for
+AN ACT of Parliament to amend the laws relating to
+various taxes and duties; and for matters incidental
+thereto
+ENACTED by the Parliament of Kenya, as follows—
+PART I—PRELIMINARY
+Short title and
+commencement.
+1. This Act may be cited as the Finance Act, 2026,
+and shall come into operation as follows—
+(a) on 1st
+ January, 2027, sections 19, 20, 25, 35,
+36, 37(a)(i), 59(a)(ii), 59(b)(ii), 32(a)(x) new
+paragraph 163;
+(b) all other sections, 1st July, 2027.
+PART II—INCOME TAX
+Amendment of
+section 2 of Cap.
+470.
+2. Section 2 of the Income Tax Act is amended in
+subsection (1)—
+(a) in the definition of “immovable property”, by
+deleting the word “and” appearing
+immediately after the words “ immovable
+property” the end of item (a), and substituting
+therefor the word “or”’;
+(b) in the definition of “management or
+professional fee”, by adding the words “and
+includes interchange fees and merchant service
+fees arising from transactions that use a card as
+a means of payment” immediately after the
+word “calculated”;
+(c) by deleting the definition of “royalty” and
+substituting therefor the following new
+definition—
+“royalty” means a payment made as a
+consideration for—
+The Finance Bill, 2026
+2
+(a) the use or the right to use—
+(i) any copyright of a literary, artistic
+or scientific work;
+(ii) any software, proprietary or offthe-shelf, whether in the form of
+licence, development, training,
+maintenance or support fees;
+(iii) any cinematograph film including
+a film or tape for radio or
+television broadcasting;
+(iv) any patent, trademark, design or
+model, plan, formula or process;
+(v) any industrial, commercial or
+scientific equipment;
+(vi) information concerning industrial,
+commercial or scientific
+equipment or experience, and any
+gains derived from the sale or
+exchange of any right or property
+giving rise to that royalty; or
+(vii) a proprietary digital platform,
+payment network, payment‑card
+scheme, payment processing
+system, switching system, clearing
+system or settlement system,
+including access, participation or
+usage rights in such system
+through a card, whether the
+consideration is periodic or
+transaction‑based and whether or
+not the payment is described as a
+service fee, transaction fee,
+network fee, assessment fee,
+processing fee or similar charge;
+or
+The Finance Bill, 2026
+3
+(b) the distribution of software where
+regular payments are made for the use
+of the software through the distributor;
+(d) by deleting the definition of “withdrawals” and
+substituting therefor the following new
+definition;
+No.15 of 2025.
+“withdrawals” means any amount of
+money, cash equivalent, or money’s worth paid
+or disbursed to the account of a player, by a
+person licensed issued under the Gambling
+Control Act, 2025;
+(e) by inserting the following new definition in
+proper alphabetical sequence—
+“winnings” means a pay-out, by a person
+licensed issued under the Gambling Control
+Act, 2025, from a lottery or prize competition
+under the Gambling Control Act, 2025, but
+does not include the amount staked or wagered.
+Amendment of
+section 5 of Cap.
+470.
+3. Section 5 of the Income Tax Act is amended in
+subsection (4)—
+(a) in the proviso to paragraph (g), by adding the
+following new paragraph immediately after
+paragraph (b)—
+(c) the gratuity was for a contract of service for
+a continuous period of at least three years;
+(b) by inserting the following new paragraph
+immediately after paragraph (g)—
+(ga) any contribution to a gratuity in respect of
+employment or services rendered:
+Provided that—
+(i) the gratuity was for a contract of
+service for a continuous period of at
+least three years;
+The Finance Bill, 2026
+4
+(ii) the total contributions does not
+exceed thirty-one per cent of the basic
+salary of the employee; and
+(iii) this paragraph shall not apply to any
+person who is eligible for deductions
+under section 22A.
+Insertion of a new
+section 6B to Cap.
+470.
+4. The Income Tax Act is amended by inserting the
+following new section immediately after section 6A—
+Imposition of nonresident rental
+income tax.
+6B. (1) Where the income of a nonresident person is accrued in or derived
+from the use or occupation of property
+situated in Kenya, a tax to be known as
+non-resident rental income tax shall be
+payable by that non-resident person at
+the rate specified in the Third Schedule
+which shall be a final tax on the income.
+(2) A non-resident person subject to
+the tax payable under subsection (1)
+shall—
+(a) register and account for the tax
+through a simplified registration
+framework prescribed by the
+Commissioner; and
+(b) submit a return and pay the tax
+due on or before the twentieth
+day of the month following the
+end of the month for which the
+rent is paid.
+(3) Subsection (2) shall not apply
+where the income accrued in or derived
+from the use or occupation of the
+property received by a resident person
+on behalf of the non-resident person
+who is subject to the deduction of tax
+specified in section 35(3)(j).
+The Finance Bill, 2026
+5
+Amendment of
+section 8 of Cap.
+470.
+5. Section 8 of the Income Tax Act is amended by
+deleting subsection (5A).
+Amendment to
+section 9 of Cap.
+470.
+6. Section 9 of the Income Tax Act is amended by
+inserting the following new subsection immediately
+after subsection (1)—
+(1A) The tax charged under subsection (1)
+shall be payable within five days after the payment
+is received or the ship leaves the port of lading,
+whichever is earlier.
+Amendment to
+section 10 of Cap.
+470.
+7. Section 10 of the Income Tax Act is amended in
+subsection (1), by adding the following new paragraphs
+immediately after paragraph (m)—
+(n) sale of scrap metal;
+(o) winnings.
+Repeal and
+replacement of
+section 11 of Cap.
+470.
+8. The Income Tax Act is amended by repealing
+section 11 and replacing it with the following new
+section—
+Trust income
+deemed income of
+trustee.
+11. (1) Any income chargeable to tax
+and received by a person in the capacity
+of a trustee, executor or administrator,
+shall be deemed to be the income of that
+trustee, executor or administrator.
+(2) Dividend or interest which is
+included in the income of the trustee,
+executor or administrator under
+subsection (1) shall not be subject to
+further tax under this Act.
+(3) Where a trustee, executor or
+administrator has paid tax on the
+chargeable income of the trust, a
+beneficiary of the trust shall not be liable
+to pay tax on that income.
+The Finance Bill, 2026
+6
+Amendment of
+section 12 of Cap.
+470.
+9. Section 12 of the Income Tax Act is amended in
+subsection (1), by deleting paragraph (a) and
+substituting therefor the following new paragraph—
+(a) if to the best of his judgement and belief he
+will have no income chargeable to tax for that
+year of income other than emoluments.
+Insertion of a new
+section 12H to Cap.
+470.
+10. The Income Tax Act is amended by inserting the
+following new section immediately after section 12G—
+Tax on income from
+importation of worn
+clothing and other
+worn articles
+12H. (1) Notwithstanding any other
+provision of this Act, a tax shall be
+payable by a person in respect of income
+derived from the importation into Kenya
+of worn clothing, worn footwear and
+other worn articles classified under
+tariff heading 6309.
+(2) For the purposes of computing
+the tax under subsection (1), the taxable
+profit shall be deemed to be five per cent
+of the customs value of the imported
+goods.
+(3) The tax payable under this
+section shall be due and payable upon
+importation and prior to the release of
+the goods and shall be a final tax in
+respect of the income.
+Amendment of
+section 15 of Cap.
+470.
+11. Section 15 of the Income Tax Act is amended in
+subsection (2), by inserting the following new paragraph
+immediately after paragraph (ae)—
+(af) in the case of an employee, the amount of
+interest, not exceeding three hundred and
+sixty thousand shillings, deducted for the
+repayment of a loan advanced by the Central
+Bank of Kenya for the construction, purchase
+or improvement of a house occupied by the
+employee.
+The Finance Bill, 2026
+7
+Amendment of
+section 16 of Cap.
+470.
+12. Section 16 of the Income Tax Act is amended in
+subsection (2)(j)(iii)(E) by deleting the words “lending
+and leasing business” appearing after the words
+“involved in” and substituting therefor the words
+“lending or leasing business, or both”.
+Amendment of
+section 18D of Cap.
+470.
+13. Section 18D of the Income Tax Act is
+amended—
+(a) in subsection (1), by deleting the expression
+“subsection (3)” appearing after the words
+“accordance with” and substituting therefor
+the expression “subsection (2)”;
+(b) in subsection (2), by deleting the expression
+“subsection (1)” appearing after the words
+“accordance with” and substituting therefor
+the expression “subsections (1) and (1A)”;
+(c) in subsection (5), by deleting the expression
+“subsection (1)” appearing after the words
+“accordance with” and substituting therefor
+the expression “subsections (1) and (1A)”.
+Amendment of
+section 18F of Cap.
+470.
+14. Section 18F of the Income Tax Act is
+amended—
+(a) in the definition of “a country-by-country
+report”, by deleting the expression “section
+18D(1)” appearing after the words “filed
+under” and substituting therefor the
+expression “section 18D(1) and (1A)”;
+(b) in the definition of “excluded multinational
+enterprise group”, by deleting the expression
+“section 18D(1)” appearing after the words
+“specified in” and substituting therefor the
+expression “section 18D(1B)”;
+(c) by deleting the definition of “ultimate parent
+entity” and substituting therefor the following
+new definition—
+The Finance Bill, 2026
+8
+“ultimate parent entity” means a
+constituent entity of a multinational enterprise
+group where—
+(a) the constituent entity owns directly or
+indirectly a sufficient interest in one or
+more other constituent entities of the
+multinational enterprise group;
+(b) the constituent entity is required to
+prepare consolidated financial
+statements under accounting
+principles generally applied in its
+jurisdiction of tax residence, or would
+be so required if its equity interests
+were traded on a public securities
+exchange in its jurisdiction of tax
+residence; and
+(c) there is no other constituent entity of
+the multinational enterprise group that
+owns directly or indirectly a sufficient
+interest in any of the other constituent
+entities of the multinational enterprise
+group.
+Amendment of
+section 19 of Cap.
+470.
+15. Section 19 of the Income Tax Act is amended—
+(a) in subsection (5)—
+(i) by deleting the words “life insurance
+fund” appearing in paragraph (a) and
+substituting therefor the words “statutory
+fund”; and
+(ii) by deleting the words “life insurance
+fund” appearing in paragraph (b) and
+substituting therefor the words “statutory
+fund”;
+(b) in subsection (5A), by deleting the words “life
+insurance fund” wherever they occur and 
+The Finance Bill, 2026
+9
+substituting therefor the words “statutory
+fund”;
+(c) in subsection (6), by deleting the words “life
+insurance fund” appearing in paragraph (b)
+and substituting therefor the words “statutory
+fund”;
+(d) in subsection (6A), by deleting the words “life
+insurance fund” wherever they occur and
+substituting therefor the words “statutory
+fund”;
+(e) in subsection 7—
+(i) in the definition of “annuity fund”, by
+deleting the words “life insurance fund”
+wherever they occur and substituting
+therefor the words “statutory fund”;
+(ii) by deleting the definition of “life
+insurance fund”;
+(iii)by inserting the following new definition
+in proper alphabetical sequence—
+Cap. 487.
+“statutory fund” means a fund
+established under section 45 of the
+Insurance Act.
+Repeal of section
+23A of Cap. 470.
+16. The Income Tax Act is amended by repealing
+section 23.
+Amendment of
+section 24 of Cap.
+470.
+17. Section 24 of the Income Tax Act is amended in
+subsection (1), by deleting the words “that part of the
+income” appearing after the words “he may direct that”,
+and substituting therefor the words “at least sixty per
+cent of that part of the income”.
+Amendment of
+section 35 of Cap.
+470.
+18. Section 35 of the Income Tax Act is amended—
+(a) in subsection (1)—
+The Finance Bill, 2026
+10
+(i) by deleting subparagraph (iii) appearing in
+paragraph (a);
+(ii) by deleting paragraph (u);
+(iii)by adding the following new paragraphs
+immediately after paragraph (u)—
+(v) the sale of scrap metal;
+(w) winnings;
+(b) in subsection (3), by adding the following
+new paragraph immediately after paragraph
+(o)—
+(p) the sale of scrap metal;
+(q) winnings.
+Amendment of
+section 52 of Cap.
+470.
+19. Section 52 of the Income Tax Act is amended—
+(a) in subsection (1), by deleting the words
+“within a reasonable time, not being less than
+thirty days from the date of service of the
+notice” appearing immediately after the words
+“furnish him”, and substituting therefor the
+words “by the last day of the fourth month
+following the end of the person’s year of
+income”;
+(b) by inserting the following new subsection
+immediately after subsection (1)—
+(1A) Where the tax return submitted under
+subsection (1) relates to a nil amount of tax
+payable, the person required to submit the tax
+return shall submit the return within one
+month following the end of the year of income
+to which the return relates.
+Amendment of
+section 52B of Cap.
+470.
+20. Section 52B of the Income Tax Act is
+amended—
+The Finance Bill, 2026
+11
+(a) in subsection (1)—
+(i) by deleting the words “including a selfassessment of his tax from all sources of
+income, not later than the last day of the
+sixth month following the end of his year
+of income” appearing in paragraph (i) and
+substituting therefor the words “by the last
+day of the fourth month following the end
+of the person’s year of income”;
+(ii) by deleting the words “including a selfassessment of his tax from all sources of
+income, not later than the last day of the
+sixth month following the end of his year
+of income” appearing in paragraph (ii) and
+substituting therefor the words “by the last
+day of the fourth month following the end
+of the person’s year of income”;
+(b) by inserting the following new subsection
+immediately after subsection (1)—
+(1A) Where the tax return submitted
+under subsection (1) relates to a nil amount of
+tax payable, the person required to submit the
+tax return shall submit the return within one
+month following the end of the year of income
+to which the return relates.
+Amendment of the
+First Schedule to
+Cap. 470.
+21. Part I of the First Schedule to the Income Tax is
+amended—
+(a) in paragraph 53, by adding the following
+paragraph immediately after paragraph (c) of
+the proviso—
+(d) benefits arising due to death;
+(b) inserting the following new paragraph
+immediately after paragraph 75—
+76. Any capital gains relating to the transfer
+of property to a real estate investment trust 
+The Finance Bill, 2026
+12
+registered by the Commissioner under
+section 20(1).
+Amendment of the
+Second Schedule to
+Cap. 470.
+22. The Second Schedule to the Income Tax Act is
+amended in the table appearing in paragraph 1(1), by
+adding the words “per year, in equal instalments”
+immediately after the expression “10%” appearing in
+item (a)(viii).
+Amendment of the
+Third Schedule to
+Cap. 470.
+23. Head B of the Third Schedule to the Income Tax
+Act is amended—
+(a) in paragraph 2, by deleting subparagraph (i);
+(b) in paragraph 3—
+(i) by deleting the proviso to subparagraph
+(d);
+(ii) by inserting the following new
+subparagraphs immediately after
+subparagraph (w)—
+(x) in respect of the sale of scrap metal,
+one and a half per cent of the gross
+amount;
+(y) in respect of winnings, twenty per
+cent;
+(c) in paragraph 5, adding the following new
+subparagraphs immediately after
+subparagraph (p)—
+(q) in respect of the sale of scrap metal, one
+and a half per cent of the gross amount;
+(r) in respect of winnings, twenty per cent;
+(d) in paragraph 10, by deleting the words “seven
+point five percent” appearing immediately
+after the words “shall be” and substituting
+therefor the word “ten percent”.
+The Finance Bill, 2026
+13
+Amendment of the
+Eighth Schedule to
+Cap. 470.
+24. Paragraph 2 of the Eighth Schedule to the
+Income Tax Act is amended—
+(a) in subparagraph (c), by deleting the
+expression “subparagraph (a)” appearing
+immediately after the words “to which” and
+substituting therefor the expression
+“subparagraph (b)”;
+(b) by adding the following new subparagraph
+immediately after subparagraph (c)—
+(d) gains derived from the alienation of shares
+by a non-resident person where the shares
+derive their value from Kenya or the
+alienation results in a change of the group
+membership of a company resident in
+Kenya or of ownership of, title in, or
+interest in property located in Kenya.
+Amendment of the
+Ninth Schedule to
+Cap. 470.
+25. The Ninth Schedule to the Income Tax Act is
+amended—
+(a) in paragraph 2, by adding the following new
+subparagraph immediately after subparagraph
+(3)—
+(4) The non-resident tax rates for repatriated
+income by a licensee under section 7B
+shall be fifteen per cent.
+(b) in paragraph 7—
+(i) in subparagraph (3), by deleting the words
+“thirty-seven and a half percent”
+appearing in item (b) immediately after
+the words “non-resident company” and
+substitute therefor the words “thirty
+percent”;
+(ii) by adding the following new paragraph
+immediately after subparagraph (3)—
+The Finance Bill, 2026
+14
+(4) The non-resident tax rates for
+repatriated income by a contractor under
+section 7B shall be fifteen per cent.
+PART III—VALUE ADDED TAX
+Amendment of
+section 2 of Cap.
+476.
+26. Section 2 of the Value Added Tax Act is
+amended in subsection (1)—
+(a) by deleting the definition of “assessment”;
+(b) by deleting the definition of “information
+technology”;
+(c) by deleting the definition of “tax
+computerized system”.
+Amendment of
+section 13 of Cap.
+476.
+27. Section 13 of the Value Added Tax Act is
+amended in subsection (6), by deleting paragraph (a) and
+substituting therefor the following new paragraph—
+Cap. 507.
+(a) in the case of a supply of goods from a person
+licenced to carry on hire purchase business
+under a hire purchase agreement registered in
+accordance with the Hire Purchase Act, any
+financial charge payable in relation to the
+supply of credit under the agreement.
+Insertion of a new
+section 17A to Cap.
+476.
+28. The Value Added Tax Act is amended by
+inserting the following new section immediately after
+section 17—
+Adjustment of input
+tax after supplies
+become exempt.
+17A. (1) Where, on the date taxable
+supplies by a registered person become
+exempt and the person has deducted
+input tax on such supplies but the
+supplies remain unsold, the person shall
+account for an amount equal to the input
+tax relating to the supplies which remain
+unsold in the tax return of the period
+when the taxable supply became
+exempt.
+The Finance Bill, 2026
+15
+(2) When accounting for input tax
+under subsection (2), the person shall
+use the method used when input tax was
+deducted in respect of the supplies
+before the date the supplies became
+exempt.
+(3) Where the adjustment results in
+excess input tax, the person shall be
+liable to pay the resulting tax to the
+Commissioner.
+Amendment of
+section 31 of Cap.
+476.
+29. Section 31 of the Value Added Tax Act is
+amended in subsection (1), by deleting the words “two
+years” appearing in paragraph (a) immediately after the
+words “period of” and substituting therefor the words
+“three years”.
+Amendment of
+section 42 of Cap.
+476.
+30. Section 42 of the Value Added Tax Act is
+amended—
+(a) in subsection (1), by deleting the word
+“registered person” appearing immediately
+after the expression “subsection (2), a” and
+substituting therefor the word “person”;
+(b) by deleting subsection (2) and substituting
+therefor the following new subsection—
+(2) An invoice showing an amount that
+purports to be tax shall only be issued in
+respect of a taxable supply.
+Repeal of section 66
+of Cap. 476.
+31. The Value Added Tax Act is amended by
+repealing section 66.
+Amendment of First
+Schedule to Cap.
+476.
+32. Section A of the First Schedule to the Value
+Added Tax Act is amended—
+(a) in Part I—
+(i) by adding the following new tariff
+number and corresponding descriptions to
+the table appearing immediately after 
+The Finance Bill, 2026
+16
+paragraph 39 in proper numerical
+sequence—
+Tariff number Description
+3002.90.00 Human blood; animal blood
+prepared for therapeutic,
+prophylactic or diagnostic
+uses
+(ii) by deleting paragraph 49;
+(iii) in paragraph 51—
+(A)by inserting the words “spare parts”
+immediately after the word
+“lubricants” appearing in paragraph
+51;
+(B) by adding the following new
+proviso—
+Provided that any exemption granted
+for spare parts before the 30th June
+2026, shall apply until the
+conclusion on the project.
+(iv) by deleting paragraph 58;
+(v) by deleting paragraph 62;
+(vi) by deleting the words “any other aircraft
+spare” appearing in paragraph 89 and
+substituting therefor the word “aircraft”;
+(vii) by deleting the words “three hundred”
+appearing in paragraph 99(i) and
+substituting therefore the words “two
+thousand”;
+(viii) by deleting paragraph 109;
+(ix) by deleting paragraph 153;
+The Finance Bill, 2026
+17
+(x) by adding the following new paragraphs
+immediately after paragraph 157—
+158. Dialyzers of tariff number
+8421.29.00.
+159. Scrap metal.
+160. Inputs or raw materials locally
+purchased or imported for the
+manufacture of animal feeds upon
+recommendation by the Cabinet
+Secretary for the time being
+responsible for matters relating to
+agriculture.
+161. Inputs or raw materials locally
+purchased or imported for the
+manufacture of pharmaceutical
+products upon recommendation by
+the Cabinet Secretary for the time
+being responsible for matters
+relating to health.
+162. Transportation of sugarcane from
+farms to milling factories.
+163. The supply of imported or locally
+purchased telephones for cellular
+networks and other wireless
+networks.
+164. The supply of motorcycles of tariff
+heading 8711.60.00.
+165. The supply of electric bicycles.
+166. The supply of solar and lithium-ion
+batteries.
+167. The supply of electric buses of
+tariff heading 87.02.
+168. Bioethanol vapour (BEV) Stoves
+classified under HS Code 
+The Finance Bill, 2026
+18
+7321.12.00 (cooking appliances
+and plate warmers for liquid fuel).
+169. Worn clothing and other worn
+articles of tariff heading 6309,
+other than upon importation.
+170. The supply of goods for the direct
+and exclusive use in the
+implementation of infrastructure
+projects undertaken under a public
+private partnership framework,
+upon approval by the Cabinet
+Secretary on the recommendation
+of the Cabinet Secretary for the
+Ministry responsible for the
+implementation of the project.
+(b) in Part II—
+(i) in paragraph 1, by deleting subparagraph
+(b) and substituting therefor the following
+new subparagraph—
+(b) the issue, transfer, receipt or any other
+dealing with money, including money
+transfer services, and accepting over
+the counter payments of household
+bills, but does not include—
+(i) the services of carriage of cash,
+restocking of cash machines,
+sorting or counting of money; and
+(ii) money transfers, payment
+processing, settlement, merchants
+acquiring, gateway or aggregation
+services supplied over a software
+or platform for a fee or
+commission by a payment service
+provider;
+The Finance Bill, 2026
+19
+(ii) paragraph 25 is amended by inserting the
+following new definitions—
+For the purposes of this paragraph—
+“tour operator” means a tour or safari
+operator licensed as such by the competent
+authority responsible for regulating and
+overseeing the tourism sector; and
+“in-house supplies” means supplies made
+from a tour operator’s own resources; or
+bought from third parties but materially
+altered so that the supply made is
+substantially different to that purchased.
+(iii)by deleting paragraph 26;
+(iv)by adding the following new paragraph
+immediately after paragraph 38—
+39. The supply of services for the direct
+and exclusive use in the
+implementation of infrastructure
+projects undertaken under a public
+private partnership framework, upon
+approval by the Cabinet Secretary on
+the recommendation of the Cabinet
+Secretary for the Ministry responsible
+for the implementation of the project.
+Amendment of
+Second Schedule to
+Cap. 476.
+33. The Second Schedule to the Value Added Tax
+Act is amended in Part A—
+(a) by deleting paragraph 11;
+(b) by deleting paragraph 21;
+(c) by deleting paragraph 29;
+(d) by deleting paragraph 30;
+(e) by deleting paragraph 31;
+(f) by deleting paragraph 32;
+The Finance Bill, 2026
+20
+(g) by deleting paragraph 33;
+(h) by deleting paragraph 34;
+(i) by deleting paragraph 35;
+PART IV—EXCISE DUTY
+Amendment of the
+section 2 of Cap.
+472.
+34. Section 2 of the Excise Duty Act is amended—
+(a) in the definition of “import”, by adding the
+following proviso—
+Provided that where the goods originate from
+an East African Community Partner State and
+meet the East African Community Rules of
+Origin, the goods shall not be considered an
+import;
+(b) by inserting the following new definition in
+proper alphabetical sequence—
+“antique, vintage or “classic vehicle”
+means a motor vehicle whose year of first
+registration is at least thirty years before the
+date of purchase of the motor vehicle and
+whose value is at least ten million shillings
+exclusive of depreciation.
+Amendment of
+section 2 of Cap.
+472.
+35. Section 6 of the Excise Duty Act is amended by
+inserting the following new subsection immediately
+after subsection (4)—
+(4A) Despite subsections (1) and (4), the
+liability of an importer or a licensed
+manufacturer for excise duty on a locally
+purchased or imported telephones for cellular
+networks and other wireless networks shall arise
+at the time of the activation of the phone.
+(4B) The Cabinet Secretary may make
+regulations for the better carrying out of
+subsection (4A).
+The Finance Bill, 2026
+21
+Amendment of
+section 36 of Cap.
+472.
+36. Section 36 of the Excise Duty Act is amended—
+(4A) Despite subsections (1) and (3), the
+excise duty payable in respect of telephones for
+cellular networks and other wireless networks
+shall be paid to the Commissioner by the time
+of the activation of the phone.
+(4B) The Cabinet Secretary may make
+regulations for the better carrying out of
+subsection (4A).
+Amendment of the
+First Schedule to
+Cap. 472.
+37. The First Schedule to the Excise Duty Act is
+amended—
+(a) in Part I, in the second table—
+(i) by deleting the description “imported
+cellular phones” and the
+corresponding rate of excise duty and
+substituting therefor the following
+new description and rate of excise
+duty—
+Tariff Description Rate of excise duty
+Telephones for cellular networks
+and other wireless networks of
+tariff heading 8517.
+25% of the
+excisable value.
+(ii) by deleting the description “fruit
+juices (including grape must) and
+vegetable juice, unfermented and not
+containing added spirit, whether or
+not containing added sugar or other
+sweetening matter” and the
+corresponding rate of excise duty;
+(iii) in the description “bottled or
+similarly packaged waters and other
+non-alcoholic beverages, not
+including fruit or vegetable juices”,
+by deleting the words “bottled or 
+The Finance Bill, 2026
+22
+similarly packaged waters and other”
+appearing immediately before the
+words “non-alcoholic beverages, not
+including fruit or vegetable juices”;
+(iv) in the description “Beer, Cider, Perry,
+Mead, Opaque beer and mixtures of
+fermented beverages with nonalcoholic beverages and spirituous
+beverages of alcoholic strength not
+exceeding 6%”, by deleting the
+proviso to the corresponding rate of
+excise duty;
+(v) in the description “spirits of
+undenatured extra neutral alcohol of
+alcoholic strength exceeding 90%
+purchased by licensed manufacturers
+of spirituous beverages” by deleting
+the words “purchased by licensed
+manufacturers of spirituous
+beverages”;
+(vi) in the description “cigars, cheroots,
+cigarillos, containing tobacco or
+tobacco substitutes” by deleting the
+corresponding rate of excise duty and
+substituting therefor the new rate of
+excise duty of “Ksh. 18,000 per kg”;
+(vii) in the description “other
+manufactured tobacco and
+manufactured tobacco substitutes;
+“homogenous” and “reconstituted
+tobacco”; tobacco extracts and
+essences” by deleting the
+corresponding rate of excise duty and
+substituting therefor the following
+new rate of excise duty “Ksh. 12,550
+per kg”;
+(viii) in the description “Imported sugar
+confectionary of tariff heading 
+The Finance Bill, 2026
+23
+17.04” by deleting the word
+“imported;
+(ix) by deleting the description “imported
+articles of plastic of tariff heading
+3923.30.00” and the corresponding
+rate of excise duty;
+(x) in the description “imported ceramic
+sinks, wash basins, wash basin
+pedestals, baths, bidets, water closet
+pans, flushing cisterns, urinals and
+similar sanitary fixtures of tariff
+heading 6910” by deleting the
+corresponding rate of excise duty and
+substituting therefor the following
+new rate of excise duty—
+“5% of the excisable value or Ksh. 50
+per kg, whichever is higher”;
+(xi) by deleting the description “imported
+articles of plastic of tariff heading
+3923.30.00 and 3923.90.00” and the
+corresponding rate of excise duty;
+(xii) in the description “Imported Glass
+bottles (excluding imported glass
+bottles for packaging of
+pharmaceutical products)”, by
+deleting the proviso;
+(xiii) in the description “Imported furniture
+of tariff heading 9403 excluding
+furniture originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by
+deleting the words “excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+The Finance Bill, 2026
+24
+(xiv) in the description “Imported printed
+paper or paperboard of tariff heading
+4811.41.90 or 4811.49.00 but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xv) in the description “Imported plates of
+plastic of tariff heading 3919.90.90,
+3920.10.90, 3920.43.90, 3920.62.90
+and 3921.19.90 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xvi) in the description “Imported paper or
+paper board, labels of all kinds
+whether or not printed of tariff
+heading 4821.10.00 and 4821.90.00
+but excluding those originating from
+East African Community Partner
+States that meet the East African
+Community Rules of Origin”, by
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xvii) in the description “Imported printing
+ink of tariff 3215.11.00 and
+3215.19.00 but excluding those 
+The Finance Bill, 2026
+25
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xviii) in the description “Imported Float
+glass and surface ground or polished
+glass, in sheets, whether or not having
+an absorbent, reflecting or nonreflecting layer, but not otherwise
+worked of tariff 7005 but excluding
+those imported by a registered
+processor upon the recommendation
+by the Cabinet Secretary responsible
+for matter relating to industry and
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin, by deleting the words “and
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xix) in the description “Imported other
+self-adhesive plates, sheets, film, foil,
+tape, strip and other flat shapes, of
+plastics, whether or not in rolls of
+tariff number 3919.90.90, but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+The Finance Bill, 2026
+26
+(xx) in the description “Imported printed
+polymers of ethylene of other plates,
+sheets, film, foil and strip, of plastics,
+noncellular and not reinforced,
+laminated, supported or similarly
+combined with other materials of
+tariff number 3920.10.90, but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xxi) in the description “Imported printed
+polymers of vinyl chloride containing
+by weight not less than 6% of other
+plates, sheets, film, foil and strip, of
+plastics, noncellular and not
+reinforced, laminated, supported or
+similarly combined with other
+materials of tariff number
+3920.43.90, but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxii) in the description “Imported printed
+poly (ethylene terephthalate) of
+polycarbonates, alkyd resins,
+polyallyl esters or other polyesters of
+other plates, sheets, film, foil and
+strip, of plastics, noncellular and not
+reinforced, laminated, supported or 
+The Finance Bill, 2026
+27
+similarly of tariff number
+3920.62.90, but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxiii) in the description “Imported printed
+cellular of other plastics of other
+plates, sheets, film, foil and strip of
+tariff number 3921.19.90, but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xxiv) in the description “Printed selfadhesive paper of tariff number
+4811.41.90, but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxv) in the description “Gummed paper
+and paperboard of tariff number
+4811.49.00 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of 
+The Finance Bill, 2026
+28
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxvi) in the description “Imported
+Uncoated kraft paper and paperboard,
+in rolls or sheets; kraftliner;
+unbleached of tariff number
+4804.11.00 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxvii) in the description “Imported other
+kraft paper or paperboard weighing
+150g/m² or less, in rolls or sheets;
+unbleached of tariff number
+4804.31.00 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxviii) in the description “Imported other
+kraft paper or paperboard weighing
+more than 150g/m² but less than 225
+g/m², in rolls or sheets; unbleached of
+tariff number 4804.41.00 but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”, by 
+The Finance Bill, 2026
+29
+deleting the words “but excluding
+those originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”;
+(xxix) in the description “Imported other
+kraft paper or paperboard weighing
+225 g/m² or more others in rolls or
+sheets; unbleached of tariff number
+4804.51.00 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxx) in the description “Imported Glass of
+heading 70.03, 70.04 or 70.05, bent,
+edge-worked, engraved, drilled,
+enamelled or otherwise worked, but
+not framed or fitted with other
+materials of Tariff Heading 70.06, but
+excluding those from East Africa
+Community Partner States that meet
+the East Africa Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxxi) in the description “Imported safety
+glass of tariff numbers 7007.19.00
+and 7007.29.00 but excluding those
+originating from East African
+Community Partner States that meet
+the East African Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East 
+The Finance Bill, 2026
+30
+African Community Partner States
+that meet the East African
+Community Rules of Origin”;
+(xxxii) in the description “Imported
+Multiple-walled insulating units of
+glass of Tariff Heading 70.08, but
+excluding those from East Africa
+Community Partner States that meet
+the East Africa Community Rules of
+Origin”, by deleting the words “but
+excluding those originating from East
+African Community Partner States
+that meet the East African
+Community Rules of Origin”.
+(xxxiii) in the description “spirits of
+undenatured extra neutral alcohol of
+alcoholic strength exceeding 90%
+purchased by licensed manufacturers
+of spirituous beverages” by deleting
+the corresponding rate of excise duty
+and substituting therefor the
+following new rate of excise duty—
+“kshs. 80 per litre”
+(xxxiv) by adding the following new tariff
+descriptions and corresponding rates
+of excise duty—
+Tariff Description Rate of excise duty
+Articles of plastic of tariff heading
+3923.30.00 and 3923.90.90
+10%
+Coal 5% of the excisable
+value
+Antique, vintage and classic
+vehicles
+50% of the
+excisable value
+The Finance Bill, 2026
+31
+Fruit juices (including grape must)
+and vegetable juice, unfermented
+and not containing added spirit.
+Ksh. 14.14 per litre
+Fruit juices (including grape must)
+and vegetable juice, unfermented,
+containing added sugar or other
+sweetening matter and not
+containing added spirit
+Kshs. 20 per litre
+(b) in Part II —
+(i) in paragraph 4A, by deleting the words
+“into a customer’s betting wallet”
+appearing immediately after the word
+“deposited” and substituting therefor the
+words “for betting purposes”;
+(ii) by deleting the proviso to paragraph 4A;
+(iii) in paragraph 4B, by deleting the words
+“into a customer’s betting wallet”
+appearing immediately after the word
+“deposited” and substituting therefor the
+words “for gambling purposes”;
+(iv) by inserting the word “service”
+immediately before the word “providers”
+appearing in paragraph 9;
+(c) in Part III—
+(i) by deleting the definition of “amount
+deposited into a customer’s betting
+wallet”;
+(ii) by inserting the following new definitions
+in proper alphabetical sequence—
+“amount deposited” means the total
+value of money or money’s worth paid,
+transferred, credited, or otherwise made
+available for betting or gambling purposes
+to a person who has been issued a licence
+The Finance Bill, 2026
+32
+under the Gambling Control Act, whether
+provided by a player or the operator,
+whether in cash or cash equivalents,
+whether or not such amount is held in an
+account operated by a player, operator or
+licensed person, or converted into chips,
+tokens, tickets, credits, or similar
+instruments;
+No. 20 of 2025.No.
+20 of 2025.
+“virtual asset” has the meaning
+assigned to it in section 2 of the Virtual
+Asset Service Providers Act, 2025;
+“virtual asset service provider” has the
+meaning assigned to it in section 2 of the
+Virtual Asset Service Providers Act, 2025.
+Amendment of the
+Second Schedule to
+Cap. 472
+38. The Second Schedule to the Excise Duty Act is
+amended in Part A, by inserting the words “National
+Intelligence Service” immediately after the words
+“Kenya Defence Forces” appearing in paragraph 11.
+PART V—TAX PROCEDURES
+Amendment of
+section 3 of Cap.
+469B.
+39. Section 3 of the Tax Procedures Act is amended
+in subsection (1)—
+(a) by deleting the definition of “certificate of
+origin;
+(b) by inserting the following new definition in
+proper alphabetical sequence—
+No. 20 of 2025.No.
+20 of 2025.
+“virtual asset” has the meaning assigned
+to it in section 2 of the Virtual Asset Service
+Providers Act, 2025;
+“virtual asset service provider” has the
+meaning assigned to it in section 2 of the
+Virtual Asset Service Providers Act, 2025.
+Amendment of
+section 6A of Cap.
+469B.
+40. Section 6A of the Tax Procedures Act is
+amended by deleting subsection (4).
+The Finance Bill, 2026
+33
+Insertion of a new
+section 6C in Cap.
+469B.
+41. The Tax Procedures Act is amended by inserting
+the following new sections immediately after section
+6B—
+Virtual asset
+service providers
+to file
+information
+returns.
+6C. (1) Each virtual asset service
+provider shall file an information return
+with the Commissioner in respect of all
+the virtual-asset users with which it
+maintains a relationship in every
+calendar year and that are identified as
+reportable users or as having controlling
+persons that are reportable persons.
+(2) A virtual asset provider shall be
+required to file the information return
+under subsection (1) if the virtual asset
+service provider provides a service that
+effectuates exchange transactions or
+making available a trading platform on
+behalf of a customer, and includes
+acting as a counterparty, or as an
+intermediary, to the exchange
+transactions.
+(3) A person who makes a false
+statement in an information return under
+subsection (1) commits an offence and
+shall be liable on conviction to a fine of
+one hundred thousand shillings for each
+false statement, or imprisonment for a
+term not exceeding three years, or to
+both.
+(4) A person who omits any
+information required to be included in
+an information return under subsection
+(1), shall be liable to a penalty of one
+hundred thousand shillings for each
+omission.
+(5) A person shall not be liable
+under subsection (3) or (4) where the
+information required to be included in 
+The Finance Bill, 2026
+34
+an information return under subsection
+(1) is in respect of another person and a
+reasonable effort was made by the
+person to obtain the information from
+that other person.
+(6) A virtual asset service provider
+that fails to file an information return or
+a “nil” information return when required
+under subsection (1) shall be liable to
+pay a penalty of one million shillings for
+each failure.
+Agreements for
+the automatic
+exchange of
+information with
+other countries on
+virtual asset
+transactions.
+6D. (1) Kenya may enter into an
+agreement with another country for the
+automatic exchange of information
+relating to transactions involving virtual
+assets.
+(2) An agreement under subsection
+(1) shall provide for the exchange of
+information relating to—
+(a) information returns filed under
+section 6C(1).
+(b) due diligence reporting and
+record keeping obligations
+prescribed under this section;
+(c) the virtual asset users with
+which a virtual asset service
+provider maintains a
+relationship in every calendar
+year and that are identified as
+reportable users or as having
+controlling persons that are
+reportable persons;
+(d) nil return filings by virtual asset
+service providers who do not
+maintain a relationship with
+virtual asset users that are
+identified as reportable users or 
+The Finance Bill, 2026
+35
+as having controlling persons
+that are reportable persons; and
+(e) arrangements or practices by
+virtual asset service providers,
+the main purpose or one of the
+main purposes of which can
+reasonably be considered to be
+to avoid obligations imposed
+under this Act.
+(5) In this section—
+“information return” means a report,
+setting out prescribed information
+which a reporting virtual-asset service
+provider is required to file with the
+Commissioner.
+(6) The Cabinet Secretary may
+make regulations necessary for the
+implementation of this section.
+Amendment of
+section 10 of Cap.
+469B.
+42. Section 10 of the Tax Procedures Act is amended
+by inserting the following new subsections immediately
+after subsection (8)—
+(9) Where a person who was deregistered under
+this section qualifies for registration under section 8,
+shall apply to the Commissioner for reinstatement of
+the registration.
+(10) Where the Commissioner is satisfied that the
+applicant under subsection (9) is liable for tax under
+a tax law, the Commissioner shall register the person
+and issue the person the same PIN that had been
+issued to the person prior to the deregistration.
+Amendment of
+section 12 of Cap.
+469B.
+43. Section 12 of the Tax Procedures Act is amended
+by inserting the following new subsection immediately
+after subsection (5A)—
+The Finance Bill, 2026
+36
+(5B) A non-resident person shall be exempt
+from the requirement of a PIN when opening an
+account with an investment bank.
+Insertion of new
+section 18A to Cap
+469B.
+44. The Tax Procedures Act is amended by inserting
+the following new section immediately after section
+18—
+Tax avoidance
+schemes.
+18A. (1) Where the Commissioner
+determines in accordance with the
+information obtained under subsection
+(2) that—
+(a) a person has entered into or
+carried out a tax avoidance
+scheme;
+(b) a person has obtained a tax
+benefit in connection with the
+scheme; and
+(c) the purpose of enabling the
+person referred to in paragraph
+(b) is to obtain a tax benefit,
+the Commissioner may determine the
+tax liability of the person who obtained
+the tax benefit as if the scheme had not
+been entered into or carried out.
+(2) The Commissioner shall rely
+on—
+Cap. 470.Cap. 470. (a) information submitted to the
+Commissioner under section
+35(5) of the Income Tax Act;
+(b) the accounting of tax deducted
+under section 37(1) of the
+Income Tax Act;
+Cap. 469.. 469.
+(c) information submitted to the
+Commissioner under section 5A 
+The Finance Bill, 2026
+37
+of the Kenya Revenue Authority
+Act;
+(d) information submitted through
+the electronic system established
+under section 23A;
+(e) information submitted to the
+Commissioner under section
+24A;
+(f) information obtained from the
+inspection of goods and records
+conducted under section 58;
+(g) information obtained from the
+auditing of the records produced
+under section 59; or
+(h) information submitted to the
+data management and reporting
+system established under section
+59A; or
+(i) information submitted to the
+Commissioner under any other
+written law,
+to make a determination under
+subsection (1).
+(3) The Commissioner shall issue to
+the person referred to in subsection (1)
+(b) an assessment of the tax liability
+determined under subsection (1) within
+five years from the last day of the tax
+period to which the tax liability relates.
+(4) In this section—
+“scheme” includes a course of
+action, and an agreement, arrangement,
+promise, plan, proposal, or undertaking, 
+The Finance Bill, 2026
+38
+whether express or implied, and
+whether or not legally enforceable; and
+“tax benefit” means –
+(a) a reduction in the liability of a
+person to pay tax;
+(b) an increase in the entitlement of
+a person to a deduction for input
+tax;
+(c) an entitlement to a refund;
+(d) a postponement of a liability for
+the payment of tax;
+(e) an acceleration of an entitlement
+to a deduction for input tax;
+(f) any other advantage arising
+because of a delay in payment of
+tax or an acceleration of the
+entitlement to a deduction for
+input tax;
+(g) anything that causes a taxable
+supply or taxable import not to
+be a taxable supply or taxable
+import, as the case may be; or
+(h) anything that gives rise to a
+deduction for input tax for an
+acquisition or import that is used
+or is intended to be used other
+than in making taxable supplies.
+Insertion of a new
+section 29A of
+Cap. 469B.
+45. The Tax Procedures Act is amended by inserting
+the following new section immediately after section
+29—
+Commissioner to
+issue an
+assessment.
+29A. (1) The Commissioner may, in
+accordance with the information
+obtained in accordance with subsection 
+The Finance Bill, 2026
+39
+(2), issue an assessment on the income
+of a person as he may deem necessary.
+(2) The Commissioner shall rely
+on—
+(a) the information submitted to the
+Commissioner under section
+35(5);
+(b) the accounting of tax deducted
+under section 37(1);
+Cap. 469. (c) the information submitted to the
+Commissioner under section 5A
+of the Kenya Revenue Authority
+Act;
+Cap. 469B. (d) the information submitted to the
+electronic system established
+under section 23A of the Tax
+Procedures Act;
+(e) the information submitted to the
+Commissioner under section
+24A;
+(f) the information obtained from
+the inspection of goods and
+records conducted under section
+58;
+(g) the information obtained from
+the auditing of the records
+produced under section 59;
+(h) the information submitted to the
+data management and reporting
+system established under section
+59A; or
+(i) the information submitted to the
+Commissioner under written
+law,
+The Finance Bill, 2026
+40
+to issue an assessment under subsection
+(1).
+Amendment of
+section 37E of
+Cap. 469B.
+46. Section 37E of the Tax Procedures Act is
+amended—
+(a) in subsection (1), by deleting the expression
+“31st December, 2023” appearing
+immediately after the words “due before the”
+and substituting therefor the expression “ 31st
+December, 2025”;
+(b) in subsection (2), by deleting the expression
+“31st
+ December, 2023” appearing
+immediately after the words “paid before
+the” and substituting therefor the expression
+“31st December, 2025”;
+(c) in subsection (3)—
+(i) in paragraph (a), by deleting the
+expression “31st December, 2023”
+appearing immediately after the words
+“up to the” and substituting therefor the
+expression “31st December, 2025”;
+(ii) in paragraph (b), by deleting the
+expression “30th June, 2025” appearing
+immediately after the words “later than
+the” and substituting therefor the
+expression “31
+st December, 2026”;
+(d) in subsection (4)—
+(i) by deleting the expression “31st
+December, 2023” appearing
+immediately after the words “as on the”
+and substituting therefor the expression
+“31st December, 2025”;
+(ii) by deleting the expression “30th June,
+2025” appearing immediately after the
+words “unpaid on the” and substituting 
+The Finance Bill, 2026
+41
+therefor the expression “31
+st December,
+2026”.
+Amendment of
+section 39A of
+Cap. 469B.
+47. Section 39A of the Tax Procedures Act is
+amended by deleting subsection (2).
+Amendment of
+section 42 of Cap.
+469B.
+48. Section 42 of the Tax Procedures Act is amended
+subsection (14), by deleting paragraph (e).
+Repeal of section
+44A of Cap.
+469B.
+49. The Tax Procedures Act is amended by repealing
+section 44A.
+Amendment of
+section 47 to Cap.
+469B.
+50. Section 47 of the Tax Procedures Act is amended
+in subsection (1), by deleting the words “and value
+added tax payable on imports” appearing in paragraph
+(a).
+Amendment of
+section 73 of Cap.
+469B.
+51. Section 75 of the Tax Procedures Act is amended
+by adding the following new section immediately after
+subsection (2)—
+(3) The Commissioner may use the information
+technology contemplated under subsection (1) to
+generate a prepopulated tax return on behalf of a
+person required to submit or lodge a tax return.
+(4) A person required to submit or lodge a tax
+return may rely on the prepopulated return generated
+by the Commissioner under subsection (3) to submit
+or lodge the return.
+Amendment of
+section 77 of Cap.
+469B.
+52. Section 77 of the Tax Procedures Act is amended
+by deleting subsection (2).
+Repeal and
+replacement of
+section 86 of
+Cap.469B.
+53. The Tax Procedures Act is amended by repealing
+section 86 and replacing it with the following new
+section—
+Failure to comply
+with electronic tax
+system.
+86. (1) Where the Commissioner
+determines that a taxpayer has failed to
+comply with the requirement under a tax
+law to issue an electronic tax invoice,
+submit a tax return in electronic form, or
+pay tax electronically pursuant to 
+The Finance Bill, 2026
+42
+section 75, the Commissioner shall issue
+a notice in writing to the taxpayer
+requiring the taxpayer to provide
+reasons for the non-compliance.
+(2) Upon receipt of the response of
+the taxpayer as required under
+subsection (1), the Commissioner shall
+consider whether—
+(a) the failure to comply arose from
+circumstances beyond the
+reasonable control of the
+taxpayer;
+(b) the failure to comply was not
+due to the wilful neglect or
+deliberate default of the
+taxpayer; and
+(c) the taxpayer took reasonable
+steps to comply with the relevant
+requirement as soon as
+practicable.
+(3) Where the Commissioner is not
+satisfied by the reasons given under
+subsection (2), the taxpayer shall be
+liable to pay the higher of the following
+penalties—
+(a) two times the value of the tax
+due;
+(b) one hundred thousand shillings;
+or
+(c) in the case of an individual, ten
+thousand shillings.
+Amendment of
+section 89 of Cap.
+469B.
+54. Section 89 of the Tax Procedures Act is
+amended—
+(a) in subsection (5A)—
+The Finance Bill, 2026
+43
+(i) in paragraph (c), by deleting the words
+“due to a malfunction of an electronic tax
+system” appearing immediately after the
+word “interest”;
+(ii) by inserting the following new paragraph
+immediately after paragraph (c)—
+(ca) a malfunction of an electronic tax
+system;
+(b) by inserting the following new subsection
+immediately after subsection (5A)—
+(5B) Despite subsection (5A), the
+Commissioner may waive the whole or part
+of any penalty or interest imposed under this
+Act where the liability to pay the penalty or
+interest does not exceed two million shillings
+and was due to an error generated by an
+electronic tax system.
+Amendment to
+section 112 of Cap.
+469B.
+55. Section 112 of the Tax Procedures Act is
+amended in subsection (2) by inserting the following
+new paragraph immediately after paragraph (b)—
+(ba) the procedure for the submission or lodging
+of returns based on prepopulated tax returns
+generated by the Commissioner.
+PART VI—MISCELLANEOUS FEES AND
+LEVIES
+Amendment of
+section 2 of Cap.
+469C.
+56. Section 2 of the Miscellaneous Fees and Levies
+Act is amended in subsection (1) by deleting the
+definition of “East African Community Partner States”
+and substituting therefor the following new definition—
+“East African Community Partner States” means
+the Republic of Kenya, the Republic of Uganda and
+the United Republic of Tanzania and any other
+country granted membership to the Community 
+The Finance Bill, 2026
+44
+under Article 3 of the Treaty Establishing the East
+African Community.
+Amendment of
+section 7 of Cap.
+469C
+57. Section 7 of the Miscellaneous Fees and Levies
+Act is amended—
+(a) in subsection (6), by deleting the words
+“twenty percent” appearing immediately
+after the expression “subsection (2)” and
+substituting therefor the words “ten percent”;
+(b) in subsection (7), by deleting the words
+“while ten percent shall be used for revenue
+enforcement initiatives” appearing
+immediately after the word “obligation”.
+Amendment of
+section 9 of Cap.
+469C.
+58. Section 9 of the Miscellaneous Fees and Levies
+Act is amended by deleting the words “import
+declaration fee, railway development levy and export
+levy” appearing immediately after the words “payment
+of” and substituting therefor the words “the fees and
+levies imposed under Part III”.
+Amendment of the
+Second Schedule to
+Cap. 469C
+59. The Second Schedule to the Miscellaneous Fees
+and Levies Act is amended—
+(a) in Part A—
+(i) by deleting paragraph (xv) and
+substituting therefor the following new
+paragraph—
+(xv) all parts of chapter 88 and goods of
+tariff heading 8802.30.00 and
+8802.40.00;
+(ii) by inserting the following new
+paragraph immediately after paragraph
+(xxxii)—
+(xxxiii) imported telephones for cellular
+networks and other wireless
+networks;
+The Finance Bill, 2026
+45
+(b) in Part B—
+(i) by deleting paragraph (xiii) and
+substituting therefor the following new
+paragraph—
+(xiii) all parts of chapter 88 and goods of
+tariff heading 8802.30.00 and
+8802.40.00;
+(ii) by inserting the following new
+paragraph immediately after paragraph
+(xviii)—
+(xix) imported telephones for cellular
+networks and other wireless
+networks.
+PART VII—STAMP DUTY
+Amendment to
+section 96A of Cap.
+480.
+60. Section 96A of the Stamp Duty Act is amended
+in subsection (1) by adding the following new paragraph
+immediately after paragraph (b)—
+(c) that the effect thereof is to convey or transfer
+a beneficial interest in property from a
+person or persons to the real estate
+investment trust.
+The Finance Bill, 2026
+46
+MEMORANDUM OF OBJECTS AND REASONS
+The Finance Bill, 2026, has been submitted by the Cabinet Secretary for
+the National Treasury and formulates proposals relating to revenue raising
+measures including liability to, and collection of taxes.
+The Bill proposes to amend the Income Tax Act (Cap. 470), the Value
+Added Tax Act (Cap. 476), the Excise Duty Act (Cap. 472), the Tax
+Procedures Act (Cap. 469B), the Miscellaneous Fees and Levies Act (Cap.
+469C) and the Stamp Duty Act (Cap. 480).
+HON. KIMANI KURIA MP,
+Chairperson,
+Finance and National Planning Committee.

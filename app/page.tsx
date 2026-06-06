@@ -1,16 +1,9 @@
 "use client";
 
+import { useChat } from "@ai-sdk/react";
+import type { UIMessage } from "ai";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-type MessageRole = "user" | "assistant";
-
-interface Message {
-  id: string;
-  role: MessageRole;
-  content: string;
-  timestamp: Date;
-}
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
 const SAMPLE_QUESTIONS = [
   "Summarize the biggest tax changes",
@@ -83,17 +76,18 @@ function SendIcon() {
 function Header({ onFocusChat }: { onFocusChat: () => void }) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#121716]/95 backdrop-blur-xl">
-      <div className="container-app flex h-[70px] items-center justify-between gap-4">
-        <div className="flex min-w-0 items-center gap-3">
-          <div className="h-10 w-12 shrink-0 overflow-hidden rounded-md border border-white/15 bg-white/5 shadow-[0_0_22px_rgba(14,165,233,0.18)]">
+      <div className="container-app flex h-16 items-center justify-between gap-2 sm:h-[70px] sm:gap-4">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <div className="h-9 w-11 shrink-0 overflow-hidden rounded-md border border-white/15 bg-white/5 shadow-[0_0_22px_rgba(14,165,233,0.18)] sm:h-10 sm:w-12">
             <KenyaFlagImage priority className="h-full w-full object-cover" />
           </div>
           <div className="min-w-0">
             <p className="font-tech text-[10px] uppercase tracking-[0.24em] text-sky-300">
               Kenya
             </p>
-            <h1 className="font-tech truncate text-sm font-semibold text-white sm:text-base">
-              Finance Bill Intelligence
+            <h1 className="font-tech truncate text-xs font-semibold text-white sm:text-base">
+              <span className="sm:hidden">Finance Bill AI</span>
+              <span className="hidden sm:inline">Finance Bill Intelligence</span>
             </h1>
           </div>
         </div>
@@ -115,9 +109,10 @@ function Header({ onFocusChat }: { onFocusChat: () => void }) {
         <button
           type="button"
           onClick={onFocusChat}
-          className="rounded-md bg-red-500 px-4 py-3 font-tech text-xs font-semibold text-white shadow-[0_0_22px_rgba(239,68,68,0.25)] transition hover:bg-red-400"
+          className="h-10 shrink-0 rounded-md bg-red-500 px-3 font-tech text-[11px] font-semibold text-white shadow-[0_0_22px_rgba(239,68,68,0.25)] transition hover:bg-red-400 sm:h-11 sm:px-4 sm:text-xs"
         >
-          Ask AI
+          <span className="sm:hidden">Ask</span>
+          <span className="hidden sm:inline">Ask AI</span>
         </button>
       </div>
     </header>
@@ -162,15 +157,15 @@ function Hero({ onFocusChat }: { onFocusChat: () => void }) {
           {FEATURE_CARDS.map((card) => (
             <article
               key={card.title}
-              className="group rounded-md border border-white/7 bg-[#141a18]/90 p-8 text-left shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition hover:border-sky-300/40 hover:bg-[#17211f]"
+              className="group rounded-md bg-[#141a18]/95 p-8 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_24px_70px_rgba(0,0,0,0.28)] transition hover:bg-[#17211f]"
             >
-              <div className={`font-tech text-4xl font-black ${card.accent}`}>
+              <div className="font-tech text-4xl font-black text-white">
                 {card.icon}
               </div>
               <h3 className="font-tech mt-7 text-xl font-bold text-white">
                 {card.title}
               </h3>
-              <p className="mt-5 text-sm leading-7 text-white/62">
+              <p className="mt-5 text-sm leading-7 text-white">
                 {card.body}
               </p>
             </article>
@@ -189,8 +184,169 @@ function Hero({ onFocusChat }: { onFocusChat: () => void }) {
   );
 }
 
-function ChatMessage({ message }: { message: Message }) {
-  const isUser = message.role === "user";
+function getMessageText(message: UIMessage): string {
+  return message.parts
+    .filter((part) => part.type === "text")
+    .map((part) => part.text)
+    .join("");
+}
+
+function renderInlineMarkdown(text: string): ReactNode[] {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, index) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>;
+    }
+
+    return part;
+  });
+}
+
+function isTableSeparator(line: string): boolean {
+  return /^\s*\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?\s*$/.test(line);
+}
+
+function parseTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
+}
+
+function MarkdownContent({ content }: { content: string }) {
+  const lines = content.split(/\r?\n/);
+  const blocks: ReactNode[] = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const line = lines[index];
+
+    if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    if (
+      line.includes("|") &&
+      index + 1 < lines.length &&
+      isTableSeparator(lines[index + 1])
+    ) {
+      const headers = parseTableRow(line);
+      const rows: string[][] = [];
+      index += 2;
+
+      while (index < lines.length && lines[index].includes("|")) {
+        rows.push(parseTableRow(lines[index]));
+        index += 1;
+      }
+
+      blocks.push(
+        <div key={blocks.length} className="my-4 overflow-x-auto">
+          <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+            <thead>
+              <tr>
+                {headers.map((header, headerIndex) => (
+                  <th
+                    key={headerIndex}
+                    className="border border-white/15 bg-white/10 px-3 py-2 font-semibold text-white"
+                  >
+                    {renderInlineMarkdown(header)}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={rowIndex}>
+                  {headers.map((_, cellIndex) => (
+                    <td
+                      key={cellIndex}
+                      className="border border-white/10 px-3 py-2 align-top font-medium text-white"
+                    >
+                      {renderInlineMarkdown(row[cellIndex] ?? "")}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>,
+      );
+      continue;
+    }
+
+    if (/^\s*[-*]\s+/.test(line)) {
+      const items: string[] = [];
+
+      while (index < lines.length && /^\s*[-*]\s+/.test(lines[index])) {
+        items.push(lines[index].replace(/^\s*[-*]\s+/, ""));
+        index += 1;
+      }
+
+      blocks.push(
+        <ul key={blocks.length} className="my-3 list-disc space-y-1 pl-5 text-white">
+          {items.map((item, itemIndex) => (
+            <li key={itemIndex}>{renderInlineMarkdown(item)}</li>
+          ))}
+        </ul>,
+      );
+      continue;
+    }
+
+    if (/^\s*\d+\.\s+/.test(line)) {
+      const items: string[] = [];
+
+      while (index < lines.length && /^\s*\d+\.\s+/.test(lines[index])) {
+        items.push(lines[index].replace(/^\s*\d+\.\s+/, ""));
+        index += 1;
+      }
+
+      blocks.push(
+        <ol key={blocks.length} className="my-3 list-decimal space-y-1 pl-5 text-white">
+          {items.map((item, itemIndex) => (
+            <li key={itemIndex}>{renderInlineMarkdown(item)}</li>
+          ))}
+        </ol>,
+      );
+      continue;
+    }
+
+    const paragraphLines: string[] = [];
+
+    while (
+      index < lines.length &&
+      lines[index].trim() &&
+      !/^\s*[-*]\s+/.test(lines[index]) &&
+      !/^\s*\d+\.\s+/.test(lines[index]) &&
+      !(
+        lines[index].includes("|") &&
+        index + 1 < lines.length &&
+        isTableSeparator(lines[index + 1])
+      )
+    ) {
+      paragraphLines.push(lines[index]);
+      index += 1;
+    }
+
+    blocks.push(
+      <p key={blocks.length} className="my-3 text-white first:mt-0 last:mb-0">
+        {renderInlineMarkdown(paragraphLines.join(" "))}
+      </p>,
+    );
+  }
+
+  return <>{blocks}</>;
+}
+
+function ChatMessage({
+  role,
+  content,
+}: {
+  role: "user" | "assistant";
+  content: string;
+}) {
+  const isUser = role === "user";
 
   return (
     <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
@@ -213,20 +369,16 @@ function ChatMessage({ message }: { message: Message }) {
         }`}
       >
         <div
-          className={`rounded-md border px-4 py-3 text-sm leading-6 ${
+          className={`rounded-md border px-4 py-3 text-sm font-medium leading-6 ${
             isUser
               ? "border-red-300/30 bg-red-500/18 text-white"
-              : "border-white/10 bg-white/[0.06] text-white/82"
+              : "border-white/10 bg-white/[0.06] text-white"
           }`}
         >
-          {message.content}
+          <div>
+            <MarkdownContent content={content} />
+          </div>
         </div>
-        <span className="font-tech text-[10px] text-white/35">
-          {message.timestamp.toLocaleTimeString("en-KE", {
-            hour: "2-digit",
-            minute: "2-digit",
-          })}
-        </span>
       </div>
     </div>
   );
@@ -302,7 +454,7 @@ function ChatInput({
   };
 
   return (
-    <div className="flex items-end gap-3 border-t border-white/10 bg-black/20 p-4">
+    <div className="flex items-end gap-2 border-t border-white/10 bg-black/20 p-3 sm:gap-3 sm:p-4">
       <textarea
         value={value}
         onChange={(event) => onChange(event.target.value)}
@@ -310,7 +462,7 @@ function ChatInput({
         disabled={disabled}
         placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
         rows={1}
-        className="min-h-12 max-h-32 flex-1 resize-none rounded-md border border-white/12 bg-[#101514] px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-white/28 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50"
+        className="min-h-11 max-h-32 min-w-0 flex-1 resize-none rounded-md border border-white/12 bg-[#101514] px-3 py-2.5 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-12 sm:px-4 sm:py-3"
         onInput={(event) => {
           const target = event.target as HTMLTextAreaElement;
           target.style.height = "auto";
@@ -321,7 +473,7 @@ function ChatInput({
         type="button"
         onClick={onSubmit}
         disabled={disabled || !value.trim()}
-        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30 sm:h-12 sm:w-12"
         aria-label="Send message"
       >
         <SendIcon />
@@ -339,19 +491,36 @@ function ChatConsole({
   onInputChange,
   onSubmit,
 }: {
-  messages: Message[];
+  messages: UIMessage[];
   input: string;
   isLoading: boolean;
-  error: string | null;
+  error: Error | undefined;
   onAsk: (question: string) => void;
   onInputChange: (value: string) => void;
   onSubmit: () => void;
 }) {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
+  const visibleMessages = messages
+    .map((message) => ({
+      id: message.id,
+      role: message.role,
+      content: getMessageText(message),
+    }))
+    .filter(
+      (message): message is {
+        id: string;
+        role: "user" | "assistant";
+        content: string;
+      } =>
+        (message.role === "user" || message.role === "assistant") &&
+        message.content.trim().length > 0,
+    );
+  const showTypingIndicator =
+    isLoading && visibleMessages[visibleMessages.length - 1]?.role !== "assistant";
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, isLoading, error]);
+  }, [visibleMessages, isLoading, error]);
 
   return (
     <section
@@ -380,19 +549,23 @@ function ChatConsole({
 
         <div className="min-h-[360px] p-4 sm:p-5">
           <div className="flex flex-col gap-4">
-            {messages.length === 0 && !isLoading ? (
+            {visibleMessages.length === 0 && !isLoading ? (
               <EmptyState />
             ) : (
               <>
-                {messages.map((message) => (
-                  <ChatMessage key={message.id} message={message} />
+                {visibleMessages.map((message) => (
+                  <ChatMessage
+                    key={message.id}
+                    role={message.role}
+                    content={message.content}
+                  />
                 ))}
-                {isLoading && <TypingIndicator />}
+                {showTypingIndicator && <TypingIndicator />}
               </>
             )}
             {error ? (
               <div className="rounded-md border border-red-300/30 bg-red-500/15 px-4 py-3 text-sm leading-6 text-red-100">
-                {error}
+                {error.message}
               </div>
             ) : null}
             <div ref={messagesEndRef} />
@@ -411,96 +584,21 @@ function ChatConsole({
 }
 
 export default function Page() {
-  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const { messages, sendMessage, status, error, clearError } = useChat();
+  const isLoading = status === "submitted" || status === "streaming";
 
   const focusChat = () => {
     document.getElementById("chat")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const trimmed = input.trim();
     if (!trimmed || isLoading) return;
 
-    const userMsg: Message = {
-      id: crypto.randomUUID(),
-      role: "user",
-      content: trimmed,
-      timestamp: new Date(),
-    };
-
-    const nextMessages = [...messages, userMsg];
-    const assistantMessageId = crypto.randomUUID();
-    const assistantMsg: Message = {
-      id: assistantMessageId,
-      role: "assistant",
-      content: "",
-      timestamp: new Date(),
-    };
-
-    setMessages([...nextMessages, assistantMsg]);
     setInput("");
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          messages: nextMessages.map((message) => ({
-            role: message.role,
-            content: message.content,
-          })),
-        }),
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(errorText || "The assistant could not respond.");
-      }
-
-      if (!response.body) {
-        throw new Error("The assistant returned an empty response.");
-      }
-
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-
-      while (true) {
-        const { done, value } = await reader.read();
-
-        if (done) {
-          break;
-        }
-
-        const chunk = decoder.decode(value, { stream: true });
-
-        setMessages((previous) =>
-          previous.map((message) =>
-            message.id === assistantMessageId
-              ? { ...message, content: message.content + chunk }
-              : message,
-          ),
-        );
-      }
-    } catch (requestError) {
-      const message =
-        requestError instanceof Error
-          ? requestError.message
-          : "The assistant could not respond.";
-
-      setError(message);
-      setMessages((previous) =>
-        previous.filter((message) => message.id !== assistantMessageId),
-      );
-    } finally {
-      setIsLoading(false);
-    }
+    clearError();
+    void sendMessage({ text: trimmed });
   };
 
   return (

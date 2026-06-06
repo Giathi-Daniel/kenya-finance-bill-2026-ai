@@ -1,3 +1,5 @@
+const path = require("node:path");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Enable React strict mode for better development experience
@@ -42,6 +44,7 @@ const nextConfig = {
 
   // Vercel-compatible configuration
   output: "standalone",
+  outputFileTracingRoot: path.join(__dirname),
 
   // TypeScript strict checking
   typescript: {

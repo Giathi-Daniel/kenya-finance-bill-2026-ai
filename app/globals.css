@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;450;500;600;700&family=DM+Mono:wght@400;500&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -28,10 +26,7 @@
   --color-text-light: #717171;
 
   /* Typography */
-  --font-display: "Orbitron", system-ui, sans-serif;
-  --font-tech: "Orbitron", system-ui, sans-serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-mono: "DM Mono", monospace;
+  --font-tech: var(--font-display);
 
   /* Spacing */
   --header-height: 64px;
