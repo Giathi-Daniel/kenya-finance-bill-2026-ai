@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;450;500;600&family=DM+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   CSS DESIGN TOKENS — Kenya Finance Bill 2026
+   ───────────────────────────────────────────── */
+:root {
+  /* Brand Colors */
+  --color-green: #006600;
+  --color-green-light: #008800;
+  --color-green-muted: #004d00;
+  --color-green-subtle: #e8f5e8;
+  --color-red: #bb0000;
+  --color-red-light: #d40000;
+  --color-red-muted: #8a0000;
+  --color-red-subtle: #fdf0f0;
+  --color-black: #000000;
+  --color-black-soft: #111111;
+  --color-white: #ffffff;
+  --color-off-white: #f9f9f7;
+  --color-warm-gray: #f4f4f0;
+  --color-border: #e0e0d8;
+  --color-text: #1a1a1a;
+  --color-text-muted: #4a4a4a;
+  --color-text-light: #717171;
+
+  /* Typography */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
+
+  /* Spacing */
+  --header-height: 64px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-green: 0 0 24px rgba(0, 102, 0, 0.12);
+  --shadow-red: 0 0 24px rgba(187, 0, 0, 0.1);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────────
+   BASE RESET & GLOBALS
+   ───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: #f7f4ed;
+  min-height: 100dvh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(0, 102, 0, 0.15);
+  color: var(--color-green-muted);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-warm-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 102, 0, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 102, 0, 0.5);
+}
+
+/* ─────────────────────────────────────────────
+   TYPOGRAPHY SYSTEM
+   ───────────────────────────────────────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-black-soft);
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 600; }
+h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 600; }
+h4 { font-size: 1.25rem; font-weight: 500; }
+h5 { font-size: 1.125rem; font-weight: 500; }
+h6 { font-size: 1rem; font-weight: 500; }
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ─────────────────────────────────────────────
+   COMPONENT CLASSES
+   ───────────────────────────────────────────── */
+@layer components {
+
+  /* Container */
+  .container-app {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Kenya flag stripe accent */
+  .flag-stripe {
+    background: linear-gradient(
+      to right,
+      var(--color-black) 0%,
+      var(--color-black) 20%,
+      var(--color-red) 20%,
+      var(--color-red) 40%,
+      var(--color-green) 40%,
+      var(--color-green) 60%,
+      var(--color-red) 60%,
+      var(--color-red) 80%,
+      var(--color-black) 80%,
+      var(--color-black) 100%
+    );
+  }
+
+  .flag-stripe-h {
+    background: linear-gradient(
+      to bottom,
+      var(--color-green) 0%,
+      var(--color-green) 33.33%,
+      var(--color-red) 33.33%,
+      var(--color-red) 66.66%,
+      var(--color-black) 66.66%,
+      var(--color-black) 100%
+    );
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-xl border border-[#e0e0d8] shadow-sm;
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer;
+  }
+
+  .card-interactive:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2;
+    font-family: var(--font-body);
+    letter-spacing: 0.01em;
+  }
+
+  .btn-sm {
+    @apply btn px-3 py-1.5 text-sm;
+  }
+
+  .btn-md {
+    @apply btn px-5 py-2.5 text-base;
+  }
+
+  .btn-lg {
+    @apply btn px-7 py-3.5 text-lg;
+  }
+
+  .btn-primary {
+    @apply btn bg-[#006600] text-white hover:bg-[#008800] focus-visible:ring-[#006600];
+    box-shadow: 0 2px 8px rgba(0, 102, 0, 0.25);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 4px 16px rgba(0, 102, 0, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 102, 0, 0.2);
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-[#1a1a1a] border border-[#e0e0d8] hover:border-[#006600] hover:text-[#006600] focus-visible:ring-[#006600];
+  }
+
+  .btn-danger {
+    @apply btn bg-[#BB0000] text-white hover:bg-[#d40000] focus-visible:ring-[#BB0000];
+  }
+
+  .btn-ghost {
+    @apply btn text-[#4a4a4a] hover:bg-[#f4f4f0] hover:text-[#1a1a1a];
+  }
+
+  /* Badge / Tag */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-green {
+    @apply badge bg-[#e8f5e8] text-[#004d00];
+  }
+
+  .badge-red {
+    @apply badge bg-[#fdf0f0] text-[#8a0000];
+  }
+
+  .badge-black {
+    @apply badge bg-[#111111] text-white;
+  }
+
+  .badge-neutral {
+    @apply badge bg-[#f4f4f0] text-[#4a4a4a];
+  }
+
+  /* Section citation chip */
+  .citation-chip {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium;
+    background: linear-gradient(135deg, rgba(0,102,0,0.08), rgba(0,102,0,0.04));
+    border: 1px solid rgba(0, 102, 0, 0.2);
+    color: var(--color-green-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Divider */
+  .divider {
+    @apply border-0 border-t border-[#e0e0d8];
+  }
+
+  .divider-green {
+    @apply border-0 border-t border-[#006600] opacity-20;
+  }
+
+  /* Input */
+  .input {
+    @apply w-full px-4 py-3 rounded-lg border border-[#e0e0d8] bg-white text-[#1a1a1a] placeholder-[#a0a09a];
+    font-family: var(--font-body);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+  }
+
+  .input:focus {
+    border-color: var(--color-green);
+    box-shadow: 0 0 0 3px rgba(0, 102, 0, 0.1);
+  }
+
+  /* Loading shimmer */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-warm-gray) 25%,
+      rgba(255,255,255,0.8) 50%,
+      var(--color-warm-gray) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Grain overlay */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Section label */
+  .section-label {
+    @apply text-xs font-medium tracking-widest uppercase;
+    color: var(--color-green);
+    font-family: var(--font-body);
+  }
+
+  /* Prose for bill content */
+  .prose-bill {
+    @apply text-[#4a4a4a] leading-relaxed;
+    font-family: var(--font-body);
+  }
+
+  .prose-bill strong {
+    @apply text-[#1a1a1a] font-semibold;
+  }
+
+  .prose-bill code {
+    @apply text-[#004d00] bg-[#e8f5e8] px-1.5 py-0.5 rounded text-xs;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   ANIMATIONS
+   ───────────────────────────────────────────── */
+@layer utilities {
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.4s ease-out forwards;
+  }
+
+  /* Staggered children */
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+
+  /* Text gradient */
+  .text-gradient-green {
+    background: linear-gradient(135deg, #008800, #004d00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-kenya {
+    background: linear-gradient(135deg, #008800 0%, #000000 50%, #BB0000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* Dot pattern background */
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(0,102,0,0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Kenya stripe divider */
+  .stripe-divider {
+    height: 3px;
+    background: linear-gradient(to right, #006600, #BB0000, #000000, #BB0000, #006600);
+  }
+
+  .flag-line {
+    background: linear-gradient(
+      to right,
+      #111111 0%,
+      #111111 28%,
+      #b42318 28%,
+      #b42318 42%,
+      #ffffff 42%,
+      #ffffff 45%,
+      #0b6b3a 45%,
+      #0b6b3a 72%,
+      #ffffff 72%,
+      #ffffff 75%,
+      #b42318 75%,
+      #b42318 100%
+    );
+  }
+
+  /* No scrollbar */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ─────────────────────────────────────────────
+   KEYFRAMES
+   ───────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes borderPulse {
+  0%, 100% { border-color: rgba(0, 102, 0, 0.3); }
+  50% { border-color: rgba(187, 0, 0, 0.3); }
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────
+   TYPING INDICATOR
+   ───────────────────────────────────────────── */
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-green);
+  animation: typingDot 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ─────────────────────────────────────────────
+   RESPONSIVE OVERRIDES
+   ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  :root {
+    --header-height: 56px;
+  }
+
+  body {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
