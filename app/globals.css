@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;450;500;600&family=DM+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;450;500;600;700&family=DM+Mono:wght@400;500&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -28,7 +28,8 @@
   --color-text-light: #717171;
 
   /* Typography */
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: "Orbitron", system-ui, sans-serif;
+  --font-tech: "Orbitron", system-ui, sans-serif;
   --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 
@@ -76,7 +77,7 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--color-text);
-  background-color: #f7f4ed;
+  background-color: #171d1b;
   min-height: 100dvh;
   line-height: 1.6;
   overflow-x: hidden;
@@ -151,7 +152,7 @@ code, pre {
 
   /* Container */
   .container-app {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   /* Kenya flag stripe accent */
@@ -426,6 +427,19 @@ code, pre {
       #b42318 75%,
       #b42318 100%
     );
+  }
+
+  .font-tech {
+    font-family: var(--font-tech);
+    letter-spacing: 0;
+  }
+
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(14, 165, 233, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 165, 233, 0.045) 1px, transparent 1px),
+      radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12), transparent 42%);
+    background-size: 56px 56px, 56px 56px, 100% 100%;
   }
 
   /* No scrollbar */

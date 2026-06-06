@@ -15,16 +15,31 @@ interface Message {
 const SAMPLE_QUESTIONS = [
   "Summarize the biggest tax changes",
   "How are gambling winnings affected?",
-  "What changes apply to secondhand clothing imports?",
+  "What changes apply to mitumba imports?",
   "Are electric vehicles exempt from VAT?",
   "Explain withholding tax on scrap metal",
   "When would the Act come into force?",
 ];
 
-const BILL_METRICS = [
-  { label: "Bill pages", value: "46" },
-  { label: "Tax changes", value: "60+" },
-  { label: "Acts amended", value: "6" },
+const FEATURE_CARDS = [
+  {
+    icon: "46",
+    title: "46 Pages Analyzed",
+    body: "The assistant is designed around the uploaded Finance Bill text, not generic tax commentary.",
+    accent: "text-sky-300",
+  },
+  {
+    icon: "60+",
+    title: "Tax Changes Mapped",
+    body: "Ask by sector, clause, tax type, date, exemption, or affected business activity.",
+    accent: "text-emerald-300",
+  },
+  {
+    icon: "6",
+    title: "Acts Amended",
+    body: "Trace how the bill changes existing tax laws and prepare sharper follow-up questions.",
+    accent: "text-red-300",
+  },
 ];
 
 function KenyaFlagImage({
@@ -65,131 +80,112 @@ function SendIcon() {
   );
 }
 
-function Header() {
+function Header({ onFocusChat }: { onFocusChat: () => void }) {
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200 bg-white/92 backdrop-blur-xl">
-      <div className="h-1 flag-line" />
-      <div className="container-app flex h-16 items-center justify-between gap-4">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#121716]/95 backdrop-blur-xl">
+      <div className="container-app flex h-[70px] items-center justify-between gap-4">
         <div className="flex min-w-0 items-center gap-3">
-          <div className="h-10 w-14 shrink-0 overflow-hidden rounded-lg border border-stone-200 bg-stone-100 shadow-sm">
-            <KenyaFlagImage
-              priority
-              className="h-full w-full object-cover"
-            />
+          <div className="h-10 w-12 shrink-0 overflow-hidden rounded-md border border-white/15 bg-white/5 shadow-[0_0_22px_rgba(14,165,233,0.18)]">
+            <KenyaFlagImage priority className="h-full w-full object-cover" />
           </div>
           <div className="min-w-0">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-800">
-              Kenya Finance Bill
+            <p className="font-tech text-[10px] uppercase tracking-[0.24em] text-sky-300">
+              Kenya
             </p>
-            <h1 className="truncate text-base font-semibold text-stone-950">
-              2026 AI Briefing Desk
+            <h1 className="font-tech truncate text-sm font-semibold text-white sm:text-base">
+              Finance Bill Intelligence
             </h1>
           </div>
         </div>
 
-        <nav className="flex items-center gap-2">
-          <span className="hidden rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-800 sm:inline-flex">
-            Bill text loaded
-          </span>
-          <a
-            href="https://www.parliament.go.ke"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-lg border border-stone-200 bg-white px-3 py-2 text-xs font-semibold text-stone-700 transition hover:border-stone-300 hover:bg-stone-50"
-          >
-            Parliament
-          </a>
+        <nav className="hidden items-center gap-8 text-xs font-semibold text-white/75 md:flex">
+          {["Home", "Bill", "Process", "About", "FAQ"].map((item, index) => (
+            <a
+              key={item}
+              href={index === 0 ? "#" : "#analysis"}
+              className={`transition hover:text-sky-300 ${
+                index === 0 ? "border-b border-red-400 pb-1 text-red-300" : ""
+              }`}
+            >
+              {item}
+            </a>
+          ))}
         </nav>
+
+        <button
+          type="button"
+          onClick={onFocusChat}
+          className="rounded-md bg-red-500 px-4 py-3 font-tech text-xs font-semibold text-white shadow-[0_0_22px_rgba(239,68,68,0.25)] transition hover:bg-red-400"
+        >
+          Ask AI
+        </button>
       </div>
     </header>
   );
 }
 
-function BillBrief() {
+function Hero({ onFocusChat }: { onFocusChat: () => void }) {
   return (
-    <section className="space-y-6">
-      <div className="space-y-4">
-        <div className="overflow-hidden rounded-2xl border border-stone-200 bg-stone-950 shadow-xl shadow-stone-200/80">
-          <KenyaFlagImage
-            priority
-            className="h-36 w-full object-cover sm:h-44"
-          />
-        </div>
-        <div className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3 py-1 text-xs font-semibold text-red-700">
-          <span className="h-1.5 w-1.5 rounded-full bg-red-600" />
-          Subject to parliamentary approval
-        </div>
-        <div className="space-y-3">
-          <h2 className="max-w-2xl text-4xl font-semibold leading-tight text-stone-950 sm:text-5xl">
-            Ask sharper questions about the Finance Bill.
-          </h2>
-          <p className="max-w-xl text-base leading-7 text-stone-600">
-            A focused workspace for reading Kenya's Finance Bill 2026 in plain
-            English, with answers constrained to the bill context once the AI
-            backend is connected.
+    <section className="relative overflow-hidden border-b border-white/10 bg-[#171d1b]">
+      <div className="absolute inset-0 cyber-grid opacity-45" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400 to-transparent" />
+
+      <div className="container-app relative z-10 flex min-h-[690px] flex-col items-center justify-center py-16 text-center">
+        <p className="font-tech text-xs uppercase tracking-[0.24em] text-sky-300 sm:text-sm">
+          &gt; Finance Bill research analysis...
+        </p>
+
+        <h2 className="font-tech mt-8 max-w-6xl text-4xl font-black uppercase leading-[1.08] text-white sm:text-6xl lg:text-7xl">
+          Kenya Finance Bill{" "}
+          <span className="text-red-400">2026</span>
+          <br />
+          <span className="text-green-300">AI Briefing</span>{" "}
+          <span className="text-sky-300">Desk</span>
+        </h2>
+
+        <p className="mt-7 max-w-3xl text-lg leading-8 text-white/80">
+          Ask plain-English questions about tax changes, exemptions, dates,
+          affected sectors, and clause wording from the bill.
+        </p>
+
+        <div className="mt-10 w-full max-w-4xl rounded-md border border-red-400/20 bg-red-950/20 px-5 py-8 shadow-[0_0_40px_rgba(14,165,233,0.08)]">
+          <p className="font-tech text-base font-semibold text-red-300 sm:text-lg">
+            Critical tax decisions need verified sources and professional advice.
+          </p>
+          <p className="mt-5 text-sm font-semibold text-white/75 sm:text-base">
+            This tool is educational and should be checked against KRA,
+            Parliament, or a certified tax professional.
           </p>
         </div>
-      </div>
 
-      <div className="grid grid-cols-3 overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm">
-        {BILL_METRICS.map((metric) => (
-          <div
-            key={metric.label}
-            className="border-r border-stone-200 px-4 py-4 last:border-r-0"
-          >
-            <p className="text-2xl font-semibold text-stone-950">
-              {metric.value}
-            </p>
-            <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-stone-500">
-              {metric.label}
-            </p>
-          </div>
-        ))}
-      </div>
-
-      <div className="rounded-xl border border-stone-200 bg-[#fbfaf7] p-4 shadow-sm">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-          What this is good for
-        </p>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          {[
-            "Find tax clauses faster",
-            "Translate legal wording",
-            "Compare affected sectors",
-            "Prepare follow-up questions",
-          ].map((item) => (
-            <div key={item} className="flex items-center gap-2 text-sm text-stone-700">
-              <span className="h-2 w-2 rounded-full bg-emerald-700" />
-              {item}
-            </div>
+        <div id="analysis" className="mt-16 grid w-full gap-6 md:grid-cols-3">
+          {FEATURE_CARDS.map((card) => (
+            <article
+              key={card.title}
+              className="group rounded-md border border-white/7 bg-[#141a18]/90 p-8 text-left shadow-[0_24px_70px_rgba(0,0,0,0.28)] transition hover:border-sky-300/40 hover:bg-[#17211f]"
+            >
+              <div className={`font-tech text-4xl font-black ${card.accent}`}>
+                {card.icon}
+              </div>
+              <h3 className="font-tech mt-7 text-xl font-bold text-white">
+                {card.title}
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-white/62">
+                {card.body}
+              </p>
+            </article>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={onFocusChat}
+          className="mt-12 rounded-md border border-sky-300/50 bg-sky-400/10 px-6 py-3 font-tech text-sm font-semibold text-sky-200 transition hover:bg-sky-400/20"
+        >
+          Start asking questions
+        </button>
       </div>
     </section>
-  );
-}
-
-function SampleQuestions({ onAsk }: { onAsk: (q: string) => void }) {
-  return (
-    <div className="space-y-3">
-      <div className="flex items-center justify-between gap-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-          Suggested prompts
-        </p>
-        <span className="text-xs text-stone-400">Tap to fill</span>
-      </div>
-      <div className="grid gap-2 sm:grid-cols-2">
-        {SAMPLE_QUESTIONS.map((question) => (
-          <button
-            key={question}
-            onClick={() => onAsk(question)}
-            className="min-h-12 rounded-lg border border-stone-200 bg-white px-3 py-2 text-left text-sm font-medium leading-snug text-stone-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-900"
-          >
-            {question}
-          </button>
-        ))}
-      </div>
-    </div>
   );
 }
 
@@ -199,31 +195,33 @@ function ChatMessage({ message }: { message: Message }) {
   return (
     <div className={`flex gap-3 ${isUser ? "flex-row-reverse" : ""}`}>
       <div
-        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xs font-bold ${
-          isUser ? "bg-stone-950 text-white" : "bg-emerald-800 text-white"
+        className={`flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md border ${
+          isUser
+            ? "border-red-300/30 bg-red-500 text-white"
+            : "border-sky-300/30 bg-white/5"
         }`}
       >
         {isUser ? (
-          "You"
+          <span className="font-tech text-[10px]">YOU</span>
         ) : (
-          <KenyaFlagImage className="h-full w-full rounded-lg object-cover" />
+          <KenyaFlagImage className="h-full w-full object-cover" />
         )}
       </div>
       <div
-        className={`flex max-w-[82%] flex-col gap-1 ${
+        className={`flex max-w-[84%] flex-col gap-1 ${
           isUser ? "items-end" : "items-start"
         }`}
       >
         <div
-          className={`rounded-xl px-4 py-3 text-sm leading-6 shadow-sm ${
+          className={`rounded-md border px-4 py-3 text-sm leading-6 ${
             isUser
-              ? "bg-stone-950 text-white"
-              : "border border-stone-200 bg-white text-stone-800"
+              ? "border-red-300/30 bg-red-500/18 text-white"
+              : "border-white/10 bg-white/[0.06] text-white/82"
           }`}
         >
           {message.content}
         </div>
-        <span className="px-1 text-[11px] text-stone-400">
+        <span className="font-tech text-[10px] text-white/35">
           {message.timestamp.toLocaleTimeString("en-KE", {
             hour: "2-digit",
             minute: "2-digit",
@@ -236,21 +234,17 @@ function ChatMessage({ message }: { message: Message }) {
 
 function EmptyState() {
   return (
-    <div className="flex min-h-[310px] flex-col justify-center rounded-xl border border-dashed border-stone-300 bg-stone-50/80 p-6">
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-white shadow-sm">
-        <KenyaFlagImage className="h-full w-full rounded-lg object-cover" />
+    <div className="flex min-h-[260px] flex-col items-center justify-center rounded-md border border-dashed border-white/15 bg-black/15 p-6 text-center">
+      <div className="h-14 w-20 overflow-hidden rounded-md border border-white/15">
+        <KenyaFlagImage className="h-full w-full object-cover" />
       </div>
-      <h3 className="text-xl font-semibold text-stone-950">
-        Start with a concrete question.
+      <h3 className="font-tech mt-6 text-2xl font-bold text-white">
+        Ask the bill, not the internet.
       </h3>
-      <p className="mt-2 max-w-md text-sm leading-6 text-stone-600">
-        Ask about a tax measure, affected sector, date, exemption, or wording in
-        the bill. Suggested prompts are below the chat.
+      <p className="mt-3 max-w-lg text-sm leading-7 text-white/60">
+        Choose a prompt or type a question about a clause, date, exemption, tax
+        category, or affected sector.
       </p>
-      <div className="mt-5 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs leading-5 text-amber-900">
-        Educational tool only. Verify critical tax decisions with KRA, Parliament,
-        or a certified tax professional.
-      </div>
     </div>
   );
 }
@@ -258,16 +252,33 @@ function EmptyState() {
 function TypingIndicator() {
   return (
     <div className="flex gap-3">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-800">
-        <KenyaFlagImage className="h-full w-full rounded-lg object-cover" />
+      <div className="h-10 w-10 shrink-0 overflow-hidden rounded-md border border-sky-300/30">
+        <KenyaFlagImage className="h-full w-full object-cover" />
       </div>
-      <div className="rounded-xl border border-stone-200 bg-white px-4 py-3 shadow-sm">
+      <div className="rounded-md border border-white/10 bg-white/[0.06] px-4 py-3">
         <div className="flex items-center gap-1.5">
           <div className="typing-dot" />
           <div className="typing-dot" />
           <div className="typing-dot" />
         </div>
       </div>
+    </div>
+  );
+}
+
+function PromptGrid({ onAsk }: { onAsk: (question: string) => void }) {
+  return (
+    <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+      {SAMPLE_QUESTIONS.map((question) => (
+        <button
+          key={question}
+          type="button"
+          onClick={() => onAsk(question)}
+          className="min-h-12 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-left text-xs font-semibold leading-5 text-white/70 transition hover:border-sky-300/50 hover:bg-sky-400/10 hover:text-sky-100"
+        >
+          {question}
+        </button>
+      ))}
     </div>
   );
 }
@@ -291,39 +302,35 @@ function ChatInput({
   };
 
   return (
-    <div className="border-t border-stone-200 bg-white p-4">
-      <div className="flex items-end gap-3">
-        <textarea
-          value={value}
-          onChange={(event) => onChange(event.target.value)}
-          onKeyDown={handleKeyDown}
-          disabled={disabled}
-          placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
-          rows={1}
-          className="min-h-12 max-h-32 flex-1 resize-none rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm leading-6 text-stone-950 outline-none transition placeholder:text-stone-400 focus:border-emerald-700 focus:ring-4 focus:ring-emerald-100 disabled:cursor-not-allowed disabled:opacity-50"
-          onInput={(event) => {
-            const target = event.target as HTMLTextAreaElement;
-            target.style.height = "auto";
-            target.style.height = `${Math.min(target.scrollHeight, 128)}px`;
-          }}
-        />
-        <button
-          onClick={onSubmit}
-          disabled={disabled || !value.trim()}
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-emerald-800 text-white shadow-sm transition hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-emerald-100 disabled:cursor-not-allowed disabled:bg-stone-300"
-          aria-label="Send message"
-        >
-          <SendIcon />
-        </button>
-      </div>
-      <p className="mt-2 text-center text-[11px] text-stone-400">
-        Enter sends. Shift+Enter adds a new line.
-      </p>
+    <div className="flex items-end gap-3 border-t border-white/10 bg-black/20 p-4">
+      <textarea
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        onKeyDown={handleKeyDown}
+        disabled={disabled}
+        placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
+        rows={1}
+        className="min-h-12 max-h-32 flex-1 resize-none rounded-md border border-white/12 bg-[#101514] px-4 py-3 text-sm leading-6 text-white outline-none transition placeholder:text-white/28 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50"
+        onInput={(event) => {
+          const target = event.target as HTMLTextAreaElement;
+          target.style.height = "auto";
+          target.style.height = `${Math.min(target.scrollHeight, 128)}px`;
+        }}
+      />
+      <button
+        type="button"
+        onClick={onSubmit}
+        disabled={disabled || !value.trim()}
+        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30"
+        aria-label="Send message"
+      >
+        <SendIcon />
+      </button>
     </div>
   );
 }
 
-function ChatWorkspace({
+function ChatConsole({
   messages,
   input,
   isLoading,
@@ -339,21 +346,31 @@ function ChatWorkspace({
   onSubmit: () => void;
 }) {
   return (
-    <section className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-xl shadow-stone-200/70">
-      <div className="flex items-center justify-between gap-4 border-b border-stone-200 bg-stone-950 px-4 py-3 text-white">
+    <section
+      id="chat"
+      className="container-app scroll-mt-28 py-14 sm:py-18"
+      aria-label="Finance Bill AI chat"
+    >
+      <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-300">
-            Assistant
+          <p className="font-tech text-xs uppercase tracking-[0.24em] text-sky-300">
+            &gt; Interactive analysis console
           </p>
-          <h2 className="text-base font-semibold text-white">Bill Q&A</h2>
+          <h2 className="font-tech mt-3 text-3xl font-black uppercase text-white sm:text-4xl">
+            Ask the Finance Bill AI
+          </h2>
         </div>
-        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-stone-200">
-          Preview mode
-        </span>
+        <p className="max-w-md text-sm leading-6 text-white/55">
+          Preview mode is active until the model endpoint is connected.
+        </p>
       </div>
 
-      <div className="flex min-h-[640px] flex-col">
-        <div className="flex-1 overflow-y-auto bg-[#f7f4ed] p-4 sm:p-5">
+      <div className="overflow-hidden rounded-md border border-white/10 bg-[#111716] shadow-[0_30px_90px_rgba(0,0,0,0.34)]">
+        <div className="border-b border-white/10 bg-black/25 p-4">
+          <PromptGrid onAsk={onAsk} />
+        </div>
+
+        <div className="min-h-[360px] p-4 sm:p-5">
           <div className="flex flex-col gap-4">
             {messages.length === 0 && !isLoading ? (
               <EmptyState />
@@ -368,10 +385,6 @@ function ChatWorkspace({
           </div>
         </div>
 
-        <div className="border-t border-stone-200 bg-[#fbfaf7] p-4">
-          <SampleQuestions onAsk={onAsk} />
-        </div>
-
         <ChatInput
           value={input}
           onChange={onInputChange}
@@ -383,21 +396,14 @@ function ChatWorkspace({
   );
 }
 
-function DisclaimerBanner() {
-  return (
-    <div className="bg-stone-950 px-4 py-2 text-center">
-      <p className="text-[11px] leading-5 text-stone-300">
-        Educational tool only. Not affiliated with National Treasury, Parliament,
-        or KRA.
-      </p>
-    </div>
-  );
-}
-
 export default function Page() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const focusChat = () => {
+    document.getElementById("chat")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const handleSubmit = async () => {
     const trimmed = input.trim();
@@ -431,32 +437,27 @@ export default function Page() {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col bg-[#f7f4ed]">
-      <DisclaimerBanner />
-      <Header />
-
-      <main id="main-content" className="flex-1" role="main">
-        <div className="container-app grid gap-8 py-8 lg:grid-cols-[0.86fr_1.14fr] lg:items-start lg:py-12">
-          <BillBrief />
-          <ChatWorkspace
-            messages={messages}
-            input={input}
-            isLoading={isLoading}
-            onAsk={setInput}
-            onInputChange={setInput}
-            onSubmit={handleSubmit}
-          />
-        </div>
+    <div className="min-h-dvh bg-[#171d1b] text-white">
+      <Header onFocusChat={focusChat} />
+      <main id="main-content" role="main">
+        <Hero onFocusChat={focusChat} />
+        <ChatConsole
+          messages={messages}
+          input={input}
+          isLoading={isLoading}
+          onAsk={setInput}
+          onInputChange={setInput}
+          onSubmit={handleSubmit}
+        />
       </main>
-
-      <footer className="border-t border-stone-200 bg-white px-4 py-5">
-        <div className="container-app flex flex-col gap-2 text-xs text-stone-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>Kenya Finance Bill 2026 AI Briefing Desk</span>
+      <footer className="border-t border-white/10 bg-[#121716] px-4 py-7">
+        <div className="container-app flex flex-col gap-3 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
+          <span>Kenya Finance Bill Intelligence</span>
           <a
             href="https://www.parliament.go.ke"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-emerald-800 hover:text-emerald-700"
+            className="font-semibold text-sky-300 hover:text-sky-200"
           >
             Official Parliament website
           </a>
