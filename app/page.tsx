@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type MessageRole = "user" | "assistant";
 
@@ -334,6 +334,7 @@ function ChatConsole({
   messages,
   input,
   isLoading,
+  error,
   onAsk,
   onInputChange,
   onSubmit,
@@ -341,10 +342,17 @@ function ChatConsole({
   messages: Message[];
   input: string;
   isLoading: boolean;
+  error: string | null;
   onAsk: (question: string) => void;
   onInputChange: (value: string) => void;
   onSubmit: () => void;
 }) {
+  const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isLoading, error]);
+
   return (
     <section
       id="chat"
@@ -361,7 +369,7 @@ function ChatConsole({
           </h2>
         </div>
         <p className="max-w-md text-sm leading-6 text-white/55">
-          Preview mode is active until the model endpoint is connected.
+          Responses stream from Groq and must cite Finance Bill sections.
         </p>
       </div>
 
@@ -382,6 +390,12 @@ function ChatConsole({
                 {isLoading && <TypingIndicator />}
               </>
             )}
+            {error ? (
+              <div className="rounded-md border border-red-300/30 bg-red-500/15 px-4 py-3 text-sm leading-6 text-red-100">
+                {error}
+              </div>
+            ) : null}
+            <div ref={messagesEndRef} />
           </div>
         </div>
 
@@ -400,6 +414,7 @@ export default function Page() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const focusChat = () => {
     document.getElementById("chat")?.scrollIntoView({ behavior: "smooth" });
@@ -416,24 +431,76 @@ export default function Page() {
       timestamp: new Date(),
     };
 
-    setMessages((previous) => [...previous, userMsg]);
-    setInput("");
-    setIsLoading(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 900));
-
+    const nextMessages = [...messages, userMsg];
+    const assistantMessageId = crypto.randomUUID();
     const assistantMsg: Message = {
-      id: crypto.randomUUID(),
+      id: assistantMessageId,
       role: "assistant",
-      content:
-        'AI integration is not connected yet. The next milestone should wire this chat to the bill context and model endpoint. Your question was: "' +
-        trimmed +
-        '"',
+      content: "",
       timestamp: new Date(),
     };
 
-    setMessages((previous) => [...previous, assistantMsg]);
-    setIsLoading(false);
+    setMessages([...nextMessages, assistantMsg]);
+    setInput("");
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          messages: nextMessages.map((message) => ({
+            role: message.role,
+            content: message.content,
+          })),
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "The assistant could not respond.");
+      }
+
+      if (!response.body) {
+        throw new Error("The assistant returned an empty response.");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { done, value } = await reader.read();
+
+        if (done) {
+          break;
+        }
+
+        const chunk = decoder.decode(value, { stream: true });
+
+        setMessages((previous) =>
+          previous.map((message) =>
+            message.id === assistantMessageId
+              ? { ...message, content: message.content + chunk }
+              : message,
+          ),
+        );
+      }
+    } catch (requestError) {
+      const message =
+        requestError instanceof Error
+          ? requestError.message
+          : "The assistant could not respond.";
+
+      setError(message);
+      setMessages((previous) =>
+        previous.filter((message) => message.id !== assistantMessageId),
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -445,6 +512,7 @@ export default function Page() {
           messages={messages}
           input={input}
           isLoading={isLoading}
+          error={error}
           onAsk={setInput}
           onInputChange={setInput}
           onSubmit={handleSubmit}
