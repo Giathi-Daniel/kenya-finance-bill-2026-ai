@@ -14,6 +14,8 @@ const SAMPLE_QUESTIONS = [
   "When would the Act come into force?",
 ];
 
+const MAX_USER_TEXT_WORDS = 200;
+
 const FEATURE_CARDS = [
   {
     icon: "46",
@@ -78,6 +80,19 @@ type HumanCheck = {
   right: number;
   token: string;
 };
+
+function normalizeUserInput(value: string): string {
+  return value
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function countInputWords(value: string): number {
+  const normalizedValue = normalizeUserInput(value);
+
+  return normalizedValue.length === 0 ? 0 : normalizedValue.split(/\s+/).length;
+}
 
 function Header({ onFocusChat }: { onFocusChat: () => void }) {
   return (
@@ -468,8 +483,14 @@ function ChatInput({
     humanCheck !== null &&
     isHumanCheckFilled &&
     humanCheckAnswer === humanCheck.left + humanCheck.right;
+  const wordCount = countInputWords(value);
+  const isWithinWordLimit = wordCount <= MAX_USER_TEXT_WORDS;
   const canSubmit =
-    !disabled && humanCheck !== null && value.trim().length > 0 && isHumanCheckCorrect;
+    !disabled &&
+    humanCheck !== null &&
+    normalizeUserInput(value).length > 0 &&
+    isHumanCheckCorrect &&
+    isWithinWordLimit;
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
@@ -523,6 +544,14 @@ function ChatInput({
         >
           <SendIcon />
         </button>
+      </div>
+      <div
+        className={`text-xs font-medium ${
+          isWithinWordLimit ? "text-white/55" : "text-red-100"
+        } sm:w-full`}
+      >
+        {wordCount}/{MAX_USER_TEXT_WORDS} words
+        {!isWithinWordLimit ? " - shorten the pasted content." : ""}
       </div>
       {humanCheckError ? (
         <button
@@ -706,14 +735,15 @@ export default function Page() {
   };
 
   const handleSubmit = () => {
-    const trimmed = input.trim();
+    const trimmed = normalizeUserInput(input);
     const humanCheckAnswer = Number.parseInt(humanCheckValue.trim(), 10);
 
     if (
       !trimmed ||
       isLoading ||
       humanCheck === null ||
-      !Number.isInteger(humanCheckAnswer)
+      !Number.isInteger(humanCheckAnswer) ||
+      countInputWords(trimmed) > MAX_USER_TEXT_WORDS
     ) {
       return;
     }
@@ -747,6 +777,10 @@ export default function Page() {
     }
   };
 
+  const handleInputChange = (value: string) => {
+    setInput(value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " "));
+  };
+
   return (
     <div className="min-h-dvh bg-[#171d1b] text-white">
       <Header onFocusChat={focusChat} />
@@ -761,7 +795,7 @@ export default function Page() {
           humanCheckError={humanCheckError}
           humanCheckValue={humanCheckValue}
           onAsk={setInput}
-          onInputChange={setInput}
+          onInputChange={handleInputChange}
           onHumanCheckChange={handleHumanCheckChange}
           onHumanCheckRetry={() => void loadHumanCheck()}
           onSubmit={handleSubmit}
