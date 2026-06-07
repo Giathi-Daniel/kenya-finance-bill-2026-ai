@@ -2,7 +2,10 @@
 
 import { useChat } from "@ai-sdk/react";
 import type { UIMessage } from "ai";
-import Image from "next/image";
+import Link from "next/link";
+import KenyaFlagImage from "./components/KenyaFlagImage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 
 const SAMPLE_QUESTIONS = [
@@ -36,25 +39,6 @@ const FEATURE_CARDS = [
     accent: "text-red-300",
   },
 ];
-
-function KenyaFlagImage({
-  className = "",
-  priority = false,
-}: {
-  className?: string;
-  priority?: boolean;
-}) {
-  return (
-    <Image
-      src="/kenya-flag.png"
-      width={200}
-      height={134}
-      alt="Kenya flag"
-      priority={priority}
-      className={className}
-    />
-  );
-}
 
 function SendIcon() {
   return (
@@ -94,51 +78,7 @@ function countInputWords(value: string): number {
   return normalizedValue.length === 0 ? 0 : normalizedValue.split(/\s+/).length;
 }
 
-function Header({ onFocusChat }: { onFocusChat: () => void }) {
-  return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#121716]/95 backdrop-blur-xl">
-      <div className="container-app flex h-16 items-center justify-between gap-2 sm:h-[70px] sm:gap-4">
-        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-          <div className="h-9 w-11 shrink-0 overflow-hidden rounded-md border border-white/15 bg-white/5 shadow-[0_0_22px_rgba(14,165,233,0.18)] sm:h-10 sm:w-12">
-            <KenyaFlagImage priority className="h-full w-full object-cover" />
-          </div>
-          <div className="min-w-0">
-            <p className="font-tech text-[10px] uppercase tracking-[0.24em] text-sky-300">
-              Kenya
-            </p>
-            <h1 className="font-tech truncate text-xs font-semibold text-white sm:text-base">
-              <span className="sm:hidden">Finance Bill AI</span>
-              <span className="hidden sm:inline">Finance Bill Intelligence</span>
-            </h1>
-          </div>
-        </div>
-
-        <nav className="hidden items-center gap-8 text-xs font-semibold text-white/75 md:flex">
-          {["Home", "Bill", "Process", "About", "FAQ"].map((item, index) => (
-            <a
-              key={item}
-              href={index === 0 ? "#" : "#analysis"}
-              className={`transition hover:text-sky-300 ${
-                index === 0 ? "border-b border-red-400 pb-1 text-red-300" : ""
-              }`}
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        <button
-          type="button"
-          onClick={onFocusChat}
-          className="h-10 shrink-0 rounded-md bg-red-500 px-3 font-tech text-[11px] font-semibold text-white shadow-[0_0_22px_rgba(239,68,68,0.25)] transition hover:bg-red-400 sm:h-11 sm:px-4 sm:text-xs"
-        >
-          <span className="sm:hidden">Ask</span>
-          <span className="hidden sm:inline">Ask AI</span>
-        </button>
-      </div>
-    </header>
-  );
-}
+// Header moved to ./components/Header
 
 function Hero({ onFocusChat }: { onFocusChat: () => void }) {
   return (
@@ -178,7 +118,7 @@ function Hero({ onFocusChat }: { onFocusChat: () => void }) {
           {FEATURE_CARDS.map((card) => (
             <article
               key={card.title}
-              className="group rounded-md bg-[#141a18]/95 p-8 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_24px_70px_rgba(0,0,0,0.28)] transition hover:bg-[#17211f]"
+              className="group border border-gray-500 rounded-md bg-[#141a18]/95 p-8 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_24px_70px_rgba(0,0,0,0.28)] transition hover:bg-[#17211f]"
             >
               <div className="font-tech text-4xl font-black text-white">
                 {card.icon}
@@ -500,50 +440,52 @@ function ChatInput({
   };
 
   return (
-    <div className="flex flex-col gap-3 border-t border-white/10 bg-black/20 p-3 sm:flex-row sm:items-end sm:p-4">
-      <textarea
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        onKeyDown={handleKeyDown}
-        disabled={disabled}
-        placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
-        rows={1}
-        className="min-h-11 max-h-32 w-full min-w-0 resize-none rounded-md border border-white/12 bg-[#101514] px-3 py-2.5 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-12 sm:flex-1 sm:px-4 sm:py-3"
-        onInput={(event) => {
-          const target = event.target as HTMLTextAreaElement;
-          target.style.height = "auto";
-          target.style.height = `${Math.min(target.scrollHeight, 128)}px`;
-        }}
-      />
-      <div className="flex w-full items-end gap-2 sm:w-auto">
-        <label className="min-w-0 flex-1 sm:w-36 sm:flex-none">
-          <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
-            {humanCheck ? `${humanCheck.left} + ${humanCheck.right}` : "Check"}
-          </span>
-          <input
-            type="number"
-            inputMode="numeric"
-            value={humanCheckValue}
-            onChange={(event) => onHumanCheckChange(event.target.value)}
-            disabled={disabled || humanCheck === null}
-            placeholder="Answer"
-            className="h-11 w-full rounded-md border border-white/12 bg-[#101514] px-3 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:h-12"
-            aria-label={
-              humanCheck
-                ? `Human check: ${humanCheck.left} plus ${humanCheck.right}`
-                : "Human check loading"
-            }
-          />
-        </label>
-        <button
-          type="button"
-          onClick={onSubmit}
-          disabled={!canSubmit}
-          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30 sm:h-12 sm:w-12"
-          aria-label="Send message"
-        >
-          <SendIcon />
-        </button>
+    <div className="flex flex-col gap-3 border-t border-white/10 bg-black/20 p-3 sm:gap-4 sm:p-4">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-4">
+        <textarea
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          onKeyDown={handleKeyDown}
+          disabled={disabled}
+          placeholder="Ask about VAT, PAYE, exemptions, deadlines, or definitions..."
+          rows={1}
+          className="min-h-11 max-h-32 w-full min-w-0 resize-none rounded-md border border-white/12 bg-[#101514] px-3 py-2.5 text-sm leading-6 text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:min-h-12 sm:basis-3/4 sm:px-4 sm:py-3"
+          onInput={(event) => {
+            const target = event.target as HTMLTextAreaElement;
+            target.style.height = "auto";
+            target.style.height = `${Math.min(target.scrollHeight, 128)}px`;
+          }}
+        />
+        <div className="flex w-full items-end gap-2 sm:basis-1/4 sm:w-auto">
+          <label className="min-w-0 flex-1">
+            <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.14em] text-white/70">
+              {humanCheck ? `${humanCheck.left} + ${humanCheck.right}` : "Check"}
+            </span>
+            <input
+              type="number"
+              inputMode="numeric"
+              value={humanCheckValue}
+              onChange={(event) => onHumanCheckChange(event.target.value)}
+              disabled={disabled || humanCheck === null}
+              placeholder="Answer"
+              className="h-11 w-full rounded-md border border-white/12 bg-[#101514] px-3 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-sky-300 focus:ring-4 focus:ring-sky-300/10 disabled:cursor-not-allowed disabled:opacity-50 sm:h-12"
+              aria-label={
+                humanCheck
+                  ? `Human check: ${humanCheck.left} plus ${humanCheck.right}`
+                  : "Human check loading"
+              }
+            />
+          </label>
+          <button
+            type="button"
+            onClick={onSubmit}
+            disabled={!canSubmit}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-green-500 text-[#07100d] shadow-[0_0_24px_rgba(34,197,94,0.24)] transition hover:bg-green-300 disabled:cursor-not-allowed disabled:bg-white/12 disabled:text-white/30 sm:h-12 sm:w-12"
+            aria-label="Send message"
+          >
+            <SendIcon />
+          </button>
+        </div>
       </div>
       <div
         className={`text-xs font-medium ${
@@ -645,9 +587,6 @@ function ChatConsole({
             Ask the Finance Bill AI
           </h2>
         </div>
-        <p className="max-w-md text-sm leading-6 text-white/55">
-          Responses stream from Groq and must cite Finance Bill sections.
-        </p>
       </div>
 
       <div className="overflow-hidden rounded-md border border-white/10 bg-[#111716] shadow-[0_30px_90px_rgba(0,0,0,0.34)]">
@@ -801,19 +740,7 @@ export default function Page() {
           onSubmit={handleSubmit}
         />
       </main>
-      <footer className="border-t border-white/10 bg-[#121716] px-4 py-7">
-        <div className="container-app flex flex-col gap-3 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-          <span>Kenya Finance Bill Intelligence</span>
-          <a
-            href="https://www.parliament.go.ke"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-sky-300 hover:text-sky-200"
-          >
-            Official Parliament website
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
