@@ -4,7 +4,11 @@ export const runtime = "nodejs";
 
 export async function GET() {
   try {
-    return Response.json(createHumanCheckChallenge());
+    return Response.json(createHumanCheckChallenge(), {
+      headers: {
+        "Cache-Control": "no-store",
+      },
+    });
   } catch (error) {
     console.error("Human check challenge failed", error);
     return Response.json(

@@ -4,13 +4,16 @@ import { GET } from "./route";
 
 describe("GET /api/human-check", () => {
   const originalGroqApiKey = process.env.GROQ_API_KEY;
+  const originalHumanCheckSecret = process.env.HUMAN_CHECK_SECRET;
 
   beforeEach(() => {
     process.env.GROQ_API_KEY = "test-groq-key";
+    delete process.env.HUMAN_CHECK_SECRET;
   });
 
   afterEach(() => {
     process.env.GROQ_API_KEY = originalGroqApiKey;
+    process.env.HUMAN_CHECK_SECRET = originalHumanCheckSecret;
   });
 
   it("returns a signed arithmetic challenge", async () => {
@@ -18,6 +21,7 @@ describe("GET /api/human-check", () => {
     const body = await response.json();
 
     expect(response.status).toBe(200);
+    expect(response.headers.get("Cache-Control")).toBe("no-store");
     expect(body).toEqual({
       left: expect.any(Number),
       right: expect.any(Number),

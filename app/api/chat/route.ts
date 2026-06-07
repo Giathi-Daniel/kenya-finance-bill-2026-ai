@@ -2,6 +2,7 @@ import { createGroq } from "@ai-sdk/groq";
 import { convertToModelMessages, type UIMessage, streamText } from "ai";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import { getServerEnv } from "../../lib/env";
 import { verifyHumanCheck } from "../../lib/human-check";
 
 export const runtime = "nodejs";
@@ -240,16 +241,8 @@ ${billContext}
 }
 
 export async function POST(request: Request) {
-  const apiKey = process.env.GROQ_API_KEY;
-
-  if (!apiKey) {
-    return Response.json(
-      { error: "GROQ_API_KEY is not configured." },
-      { status: 500 },
-    );
-  }
-
   try {
+    const { groqApiKey } = getServerEnv();
     const [{ messages }, billContent] = await Promise.all([
       parseChatRequest(request),
       loadFinanceBillContent(),
@@ -259,7 +252,7 @@ export async function POST(request: Request) {
       billContent,
       getLatestUserQuestion(limitedMessages),
     );
-    const groq = createGroq({ apiKey });
+    const groq = createGroq({ apiKey: groqApiKey });
 
     const result = streamText({
       model: groq(GROQ_MODEL),
@@ -274,6 +267,10 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof ChatRequestError) {
       return Response.json({ error: error.message }, { status: 400 });
+    }
+
+    if (error instanceof Error && error.message === "GROQ_API_KEY is not configured.") {
+      return Response.json({ error: error.message }, { status: 500 });
     }
 
     console.error("Chat request failed", error);

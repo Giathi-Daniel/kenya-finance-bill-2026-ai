@@ -1,4 +1,5 @@
 import { createHmac, randomInt, timingSafeEqual } from "node:crypto";
+import { getServerEnv } from "./env";
 
 const HUMAN_CHECK_TTL_MS = 5 * 60 * 1000;
 let lastExpression = "";
@@ -18,13 +19,7 @@ type HumanCheckPayload = {
 };
 
 function getSigningSecret(): string {
-  const secret = process.env.HUMAN_CHECK_SECRET ?? process.env.GROQ_API_KEY;
-
-  if (!secret) {
-    throw new Error("Human check signing secret is not configured.");
-  }
-
-  return secret;
+  return getServerEnv().humanCheckSecret;
 }
 
 function base64UrlEncode(value: string): string {

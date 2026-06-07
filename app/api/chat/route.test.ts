@@ -41,14 +41,17 @@ const withHumanCheck = (body: Record<string, unknown>) => {
 
 describe("POST /api/chat", () => {
   const originalGroqApiKey = process.env.GROQ_API_KEY;
+  const originalHumanCheckSecret = process.env.HUMAN_CHECK_SECRET;
 
   beforeEach(() => {
     vi.clearAllMocks();
     process.env.GROQ_API_KEY = "test-groq-key";
+    delete process.env.HUMAN_CHECK_SECRET;
   });
 
   afterEach(() => {
     process.env.GROQ_API_KEY = originalGroqApiKey;
+    process.env.HUMAN_CHECK_SECRET = originalHumanCheckSecret;
   });
 
   it("returns 500 when GROQ_API_KEY is missing", async () => {
